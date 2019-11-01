@@ -5,6 +5,7 @@ export const ZoneHandling = {
   Shipped : 'Shipped',
   Scoped : 'Scoped'
 };
+
 // ViewEncapsulation: 0 = Emulated | 1 = Native | 2 = None | 3 = ShadowDom
 export const ViewEncapsulation = {
   Emulated : 0,
@@ -33,27 +34,6 @@ export const scriptsShipped = true;
 export const polyfillsShipped = true;
 // runtimeShipped: true | false
 export const runtimeShipped = true;
-
-export interface VariantConfig {
-  // general variants config
-  name?: string;
-  zone?: string;
-  encapsulation?: number;
-  changeDetection?: number;
-  // bundling config
-  outputPath?: string;
-  bundleName?: string;
-  polyfills?: boolean;
-  runtime?: boolean;
-  compilation: string;
-  esVersion?: string;
-  scripts?: boolean;
-}
-
-export interface VariantSet {
-  defaultOption: VariantConfig;
-  [key: string]: VariantConfig;
-}
 
 export const defaultVariantConfig = {
   // general variants config

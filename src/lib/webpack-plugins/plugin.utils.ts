@@ -2,9 +2,19 @@ import * as path from 'path';
 // @ts-ignore
 import * as fs from 'fs-extra';
 
-import {defaultVariantConfig, EsVersions, runtimeShipped, scriptsShipped, VariantConfig, VariantSet, ZoneHandling} from '../interfaces';
+import {defaultVariantConfig, EsVersions, runtimeShipped, scriptsShipped, VariantConfig, VariantSet, ZoneHandling} from '../shared';
 
-export function getVariantConfig(options: any, variants: VariantSet): VariantConfig {
+interface Options {
+  outputPath: string;
+  fileReplacements: { replace: string, with: string }[];
+}
+
+interface WebPackConfig {
+  entry: {[key: string]: string[]};
+  optimization: any;
+}
+
+export function getVariantConfig(options: Options, variants: VariantSet): VariantConfig {
   return {
     // for serving we dont need a outputPath or bundle name
     bundleName: options.outputPath ? path.parse(options.outputPath).dir.split('/')[1] : '',
@@ -28,7 +38,7 @@ export function postCliBuild(variant: VariantConfig): Promise<void> {
     .finally(() => console.log('finally'));
 }
 
-export function setupBundles(cfg: any, variant: VariantConfig) {
+export function setupBundles(cfg: WebPackConfig, variant: VariantConfig) {
 
   // control runtime
   if (variant.runtime === !runtimeShipped) {
@@ -67,9 +77,9 @@ export function setupBundles(cfg: any, variant: VariantConfig) {
       .concat(vendor || [])
       .concat(main || [])
   };
+  logEntries(cfg);
   return cfg;
 }
-
 
 // ============================
 
@@ -79,37 +89,39 @@ function merge(pathList: string[], destination: string): Promise<void> {
     .catch(e => (console.error('ERROR: ', e)));
 }
 
-function logEntries(entries: { [key: string]: string[] }): { [key: string]: string[] } {
-  return Object.entries(entries)
+function logEntries(cgf: WebPackConfig): void {
+  console.log('Raw WebPackConfig.entry', cgf.entry);
+  const preparedEntries = Object.entries(cgf.entry)
     .map(([entryName, files]: [string, string[]]) => {
       return [entryName, files.map(p => (p + '').split('\\').pop())];
     })
     .reduce((ob, [entryName, files]: any): any => ({...ob, [entryName]: files}), {});
+  console.log('Prepared', preparedEntries);
 }
 
-function getSafeConfig<T>(config: T): T {
+function getSafeConfig<T>(config: any): VariantConfig {
   return {
     ...defaultVariantConfig,
     ...config
   };
 }
 
-function getReplacedFile<T>(cfg: any, mainFile: string, set: { [key: string]: T }): T {
+function getReplacedFile<T>(options: Options, mainFile: string, set: VariantSet): VariantConfig {
   // i.e. environment.prod.ts
   // [{replace: string, with: string}, ...]
-  const fileReplacement = cfg.fileReplacements.find((fileReplacementObject: { replace: string, with: string }) => {
+  const fileReplacement:any = options.fileReplacements.find((fileReplacementObject) => {
     return fileReplacementObject.replace.indexOf(mainFile) !== -1;
   });
 
-  const file = fileReplacement ? fileReplacement.with
-    .split('/').pop()
-    // '' => [environment, devControlled, ts]
-    .split('.')[1] : false;
 
-  if (file) {
+  const file = fileReplacement ? fileReplacement.with
+      .split('/').pop()
+      // '' => [environment, devControlled, ts]
+      .split('.')[1] : '';
+
+  if (file !== '') {
     return set[file];
   }
 
   return set.defaultOption;
 }
-

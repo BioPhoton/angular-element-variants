@@ -1,2 +1,2 @@
-export * from './provider.utils';
+export * from '../shared'
 export * from './consumer.utils';
