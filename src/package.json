@@ -1,0 +1,24 @@
+{
+  "name": "angular-element-variants",
+  "description": "Tools for bundling Angular element variants",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BioPhoton/angular-element-variants.git"
+  },
+  "keywords": [
+    "Angular",
+    "WebComponents",
+    "Bunlding",
+    "AngularArchtitectAPI"
+  ],
+  "author": "Michael Hladky",
+  "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
+  "version": "0.0.0-alpha.3",
+  "peerDependencies": {
+  },
+  "browser": {
+    "fs": true,
+    "path": true
+  }
+}

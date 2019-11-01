@@ -1,0 +1,30 @@
+{
+  "name": "angular-element-vatiants",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "tsc": "tsc",
+    "compile:tooling": "tsc",
+    "post:compile": "ts-node -P tooling/tsconfig.tooling.json tooling/post-compile.ts",
+    "publish": "npm run compile:tooling && npm run post:compile"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "tslib": "^1.10.0",
+    "@types/fs-extra": "^8.0.1",
+    "@types/node": "^8.10.58",
+    "fs-extra": "^8.1.0",
+    "gzip-all": "1.0.0",
+    "node-ts": "^5.0.2",
+    "rxjs": "^6.4.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~5.18.0",
+    "typescript": "3.6.4"
+  }
+}
