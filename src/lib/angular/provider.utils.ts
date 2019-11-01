@@ -1,12 +1,10 @@
-import {VariantConfig, ViewEncapsulation, ZoneHandling} from '../interfaces';
+import {VariantConfig, ZoneHandling} from '../interfaces';
 
 export function logProvider(variant: VariantConfig) {
-
   console.log('Provider environment name:', variant.name);
   console.log('Provider encapsulation: ', getEncapsulation(variant.encapsulation));
   console.log('Provider changeDetection: ', variant.changeDetection === 0 ? 'Default' : 'OnPush');
   console.log('Provider compilation for:', variant.compilation);
-
 }
 
 export function getCompilerOptions(variant: VariantConfig): {[key: string]: any} {
