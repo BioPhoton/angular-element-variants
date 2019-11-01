@@ -11,7 +11,8 @@
     "tsc": "tsc",
     "compile:tooling": "tsc",
     "post:compile": "ts-node -P tooling/tsconfig.tooling.json tooling/post-compile.ts",
-    "publish": "npm run compile:tooling && npm run post:compile"
+    "lib:publish": "cd ./dist/angular-element-variants/ && npm publish",
+    "publish": "npm run compile:tooling && npm run post:compile && npm run lib:publish"
   },
   "private": true,
   "dependencies": {},
