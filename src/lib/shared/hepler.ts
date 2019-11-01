@@ -2,7 +2,7 @@
 // CompilationTypes: 'preCompiled' | 'unCompiled'
 // ZoneHandling: 'None' | 'Injected' | 'Shipped' | 'Scoped'
 // ViewEncapsulation: 0 = Emulated | 1 = Native | 2 = None | 3 = ShadowDom
-import {VariantConfig} from "../interfaces";
+import {VariantConfig} from "./variant-config.interface";
 
 export function  toReadableEncapsulation(encapsulation: number = 3): string {
     if (encapsulation === 0) {
