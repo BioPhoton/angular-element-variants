@@ -18,7 +18,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "tslib": "^1.10.0",
+    "@angular/core": "^8.2.13",
     "@types/fs-extra": "^8.0.1",
     "@types/node": "^8.10.58",
     "fs-extra": "^8.1.0",
@@ -26,6 +26,7 @@
     "node-ts": "^5.0.2",
     "rxjs": "^6.4.0",
     "ts-node": "~8.3.0",
+    "tslib": "^1.10.0",
     "tslint": "~5.18.0",
     "typescript": "3.6.4"
   }

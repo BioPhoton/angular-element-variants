@@ -1,16 +1,27 @@
+import {
+  ChangeDetection,
+  CompilationTypes,
+  EsVersions,
+  ViewEncapsulation,
+  ZoneHandling
+} from "./variant-config.constants";
+
+export interface ElementSet<T> { [key: string]: T }
+
 export interface VariantConfig {
   // general variants config
   name?: string;
-  zone?: string;
-  encapsulation?: number;
-  changeDetection?: number;
+  applicationType: string;
+  zone?: ZoneHandling;
+  encapsulation?: ViewEncapsulation;
+  changeDetection?: ChangeDetection;
   // bundling config
   outputPath?: string;
   bundleName?: string;
   polyfills?: boolean;
   runtime?: boolean;
-  compilation: string;
-  esVersion?: string;
+  compilation: CompilationTypes;
+  esVersion?: EsVersions;
   scripts?: boolean;
 }
 

@@ -1,8 +1,8 @@
 import {getVariantConfig, postCliBuild, setupBundles} from './plugin.utils';
 import {VariantSet} from '../shared';
 
-export function getVariantsPlugin(variants: VariantSet): { config?: any, post?: any, pre?: any } {
-    return {
+export function getVariantsPlugin(variants?: VariantSet): { config?: any, post?: any, pre?: any } {
+    return variants ? {
         config(cfg: any, options: any) {
             return setupBundles(cfg, getVariantConfig(options, variants));
         },
@@ -12,5 +12,5 @@ export function getVariantsPlugin(variants: VariantSet): { config?: any, post?: 
                 return postCliBuild(getVariantConfig(options, variants));
             }
         }
-    };
+    } : {};
 }
