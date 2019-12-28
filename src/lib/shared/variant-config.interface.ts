@@ -11,7 +11,6 @@ export interface ElementSet<T> { [key: string]: T }
 export interface VariantConfig {
   // general variants config
   name?: string;
-  applicationType: string;
   zone?: ZoneHandling;
   encapsulation?: ViewEncapsulation;
   changeDetection?: ChangeDetection;
