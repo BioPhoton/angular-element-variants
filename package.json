@@ -3,8 +3,6 @@
   "private": false,
   "scripts": {
     "lerna": "lerna",
-    "ng": "ng",
-    "start": "ng serve",
     "build:builder": "cd builder-webpack && yarn build",
     "build:core": "cd core && yarn build",
     "build:integration-helper": "cd integration-helper && yarn build",
@@ -50,5 +48,27 @@
     "tslib": "^1.10.0",
     "tslint": "~5.18.0",
     "typescript": "3.6.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,html,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "endOfLine": "lf",
+    "tabWidth": 2,
+    "printWidth": 100,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "singleQuote": true
   }
 }

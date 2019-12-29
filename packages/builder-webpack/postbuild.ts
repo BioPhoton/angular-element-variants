@@ -25,7 +25,6 @@ concat(merge(...observables), syncWithNodeModules())
     });
 
 function syncWithNodeModules() {
-    console.log('syncWithNodeModules');
     return concat(
         from(fs.mkdir(nodeModules)),
         from(fs.copy(destination, nodeModules))
