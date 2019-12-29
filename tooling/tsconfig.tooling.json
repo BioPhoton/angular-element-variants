@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "../../",
+    "baseUrl": "../",
     "target": "es5",
     "declaration": true,
     "types": ["node"],

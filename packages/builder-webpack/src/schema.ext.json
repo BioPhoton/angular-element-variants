@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "variant": {
+      "type": "string",
+      "description": "Variant name"
+    }
+  }
+}

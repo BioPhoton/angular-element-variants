@@ -1,0 +1,25 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "browser": {
+      "implementation": "./browser",
+      "schema": "./browser/schema.json",
+      "description": "Build browser app specialized for angular elements"
+    },
+    "server": {
+      "implementation": "./server",
+      "schema": "./server/schema.json",
+      "description": "Build server app specialized for angular elements"
+    },
+    "dev-server": {
+      "implementation": "./dev-server",
+      "schema": "./dev-server/schema.json",
+      "description": "Dev server specialized for angular elements"
+    },
+    "karma": {
+      "implementation": "./karma",
+      "schema": "./karma/schema.json",
+      "description": "Karma server specialized for angular elements"
+    }
+  }
+}

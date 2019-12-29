@@ -1,0 +1,26 @@
+{
+  "name": "@angular-element-variants/integration-helper",
+  "description": "Tools for bundling Angular element variants",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BioPhoton/angular-element-variants.git"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "./../node_modules/.bin/tsc",
+    "postbuild": "./../node_modules/.bin/ts-node postbuild.ts",
+    "clean": "./../node_modules/.bin/rimraf dist/integration-helper"
+  },
+  "keywords": [
+    "Angular",
+    "WebComponents",
+    "Bunlding",
+    "AngularArchtitectAPI"
+  ],
+  "author": "Michael Hladky",
+  "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
+  "version": "0.0.0-beta.5",
+  "peerDependencies": {
+  }
+}
