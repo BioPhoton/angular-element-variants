@@ -6,7 +6,8 @@
     "publish": "lerna publish",
     "build:builder": "cd packages/builder-webpack && yarn build",
     "build:core": "cd packages/core && yarn build",
-    "build:integration-helper": "cd packages/integration-helper && yarn build"
+    "build:integration-helper": "cd packages/integration-helper && yarn build",
+    "format": "prettier --write \"**/*.{js,ts,html,md}\""
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.0",

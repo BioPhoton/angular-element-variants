@@ -1,4 +1,4 @@
 export declare class AppPage {
-    navigateTo(): Promise<any>;
-    getTitleText(): Promise<string>;
+  navigateTo(): Promise<any>;
+  getTitleText(): Promise<string>;
 }

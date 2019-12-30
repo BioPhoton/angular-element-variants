@@ -1,4 +1,4 @@
 export interface ElementVariantsWebpackSchema {
-    variant: string;
-    indexTransform: string;
+  variant: string;
+  indexTransform: string;
 }

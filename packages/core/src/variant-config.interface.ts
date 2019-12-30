@@ -3,10 +3,12 @@ import {
   CompilationTypes,
   EsVersions,
   ViewEncapsulation,
-  ZoneHandling
-} from "./variant-config.constants";
+  ZoneHandling,
+} from './variant-config.constants';
 
-export interface ElementSet<T> { [key: string]: T }
+export interface ElementSet<T> {
+  [key: string]: T;
+}
 
 export interface VariantConfig {
   // general variants config

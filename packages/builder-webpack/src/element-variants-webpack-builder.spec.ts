@@ -1,7 +1,10 @@
 import { Path } from '@angular-devkit/core';
 import { Configuration } from 'webpack';
 
-import { ElementVariantsWebpackBuilder, defaultWebpackConfigPath } from './element-variants-webpack-builder';
+import {
+  ElementVariantsWebpackBuilder,
+  defaultWebpackConfigPath,
+} from './element-variants-webpack-builder';
 import * as webpackConfigMerger from './webpack-config-merger';
 
 const baseWebpackConfig = {
@@ -70,7 +73,12 @@ describe('ElementVariantsWebpackBuilder', () => {
   it('should load webpack.config.js if no path specified', async () => {
     const spy = jest.spyOn(webpackConfigMerger, 'mergeConfigs');
     createConfigFile(defaultWebpackConfigPath, customWebpackConfig);
-    await ElementVariantsWebpackBuilder.buildWebpackConfig(__dirname as Path, {}, baseWebpackConfig, {});
+    await ElementVariantsWebpackBuilder.buildWebpackConfig(
+      __dirname as Path,
+      {},
+      baseWebpackConfig,
+      {}
+    );
 
     try {
       expect(spy).toHaveBeenCalledWith(
@@ -84,8 +92,6 @@ describe('ElementVariantsWebpackBuilder', () => {
     }
   });
 
- 
- 
   it('should pass build options to the webpack config function', async () => {
     const spy = jest.fn((config, options) => config);
     createConfigFile(defaultWebpackConfigPath, spy);
