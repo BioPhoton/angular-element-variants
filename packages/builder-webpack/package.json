@@ -1,6 +1,6 @@
 {
   "name": "@angular-element-variants/builder-webpack",
-  "version": "0.0.0-beta.12",
+  "version": "0.0.0-beta.13",
   "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
   "main": "dist/index.js",
   "files": [
