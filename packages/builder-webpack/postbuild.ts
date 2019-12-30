@@ -1,19 +1,19 @@
-import * as path from 'path';
-import * as fs from 'fs-extra';
-import {concat, from, merge} from 'rxjs';
+import {concat} from 'rxjs';
+import {copyPackageDefaults, syncWithNodeModules} from "../../tooling/common";
 
 const source = '';
-const destination = '../dist/builder-webpack';
-const nodeModules = '../node_modules/@angular-element-variants/builder-webpack';
+const destination = '../../dist/builder-webpack';
+const nodeModules = '../../node_modules/@angular-element-variants/builder-webpack';
 const files = [
     'builders.json',
     'package.json',
     'README.md'
 ];
 
-const observables = files
-    .reduce((obs, file) => obs.concat([from(fs.copyFile(path.join(source, file), path.join(destination, file)))]), [])
-concat(merge(...observables), syncWithNodeModules())
+concat(
+    copyPackageDefaults(files, source, destination),
+    syncWithNodeModules(destination, nodeModules)
+)
     .subscribe({
         // next(res) { console.log('Copied files to dist'); },
         error(error) {
@@ -23,10 +23,3 @@ concat(merge(...observables), syncWithNodeModules())
             console.log('COMPLETE');
         }
     });
-
-function syncWithNodeModules() {
-    return concat(
-        from(fs.mkdir(nodeModules)),
-        from(fs.copy(destination, nodeModules))
-    )
-}

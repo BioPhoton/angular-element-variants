@@ -1,5 +1,5 @@
-import { writeFileSync } from 'fs';
-import { merge } from 'lodash';
+import {writeFileSync} from 'fs';
+import {merge} from 'lodash';
 
 interface CustomSchema {
     originalSchemaPath: string;

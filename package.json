@@ -3,18 +3,10 @@
   "private": false,
   "scripts": {
     "lerna": "lerna",
-    "build:builder": "cd builder-webpack && yarn build",
-    "build:core": "cd core && yarn build",
-    "build:integration-helper": "cd integration-helper && yarn build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "tsc": "tsc",
-    "compile:tooling": "tsc",
-    "post:compile": "ts-node -P tooling/tsconfig.tooling.json tooling/post-compile.ts",
-    "prepare-publish": "npm run compile:tooling && npm run post:compile",
-    "lib:publish": "cd ./dist/angular-element-variants/ && npm publish",
-    "publish": "npm run prepare-publish && npm run lib:publish"
+    "publish": "lerna publish",
+    "build:builder": "cd packages/builder-webpack && yarn build",
+    "build:core": "cd packages/core && yarn build",
+    "build:integration-helper": "cd packages/integration-helper && yarn build"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.0",

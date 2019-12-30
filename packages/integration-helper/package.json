@@ -8,9 +8,9 @@
   },
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "./../node_modules/.bin/tsc",
-    "postbuild": "./../node_modules/.bin/ts-node postbuild.ts",
-    "clean": "./../node_modules/.bin/rimraf dist/integration-helper"
+    "build": "./../../node_modules/.bin/tsc",
+    "postbuild": "./../../node_modules/.bin/ts-node postbuild.ts",
+    "clean": "./../../node_modules/.bin/rimraf dist/integration-helper"
   },
   "keywords": [
     "Angular",

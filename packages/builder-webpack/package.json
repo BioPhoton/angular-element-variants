@@ -20,9 +20,9 @@
   },
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "./../node_modules/.bin/tsc && ./../node_modules/.bin/ts-node merge-schemes.ts",
-    "postbuild": "./../node_modules/.bin/ts-node postbuild.ts",
-    "clean": "./../node_modules/.bin/rimraf dist/builder-webpack"
+    "build": "./../../node_modules/.bin/tsc && ./../../node_modules/.bin/ts-node merge-schemes.ts",
+    "postbuild": "./../../node_modules/.bin/ts-node postbuild.ts",
+    "clean": "./../../node_modules/.bin/rimraf dist/builder-webpack"
   },
   "builders": "builders.json",
   "dependencies": {

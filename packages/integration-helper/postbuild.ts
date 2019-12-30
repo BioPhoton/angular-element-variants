@@ -1,17 +1,18 @@
-import * as path from 'path';
-import * as fs from 'fs-extra';
-import {from, merge} from 'rxjs';
+import {concat} from 'rxjs';
+import {copyPackageDefaults, syncWithNodeModules} from "../../tooling/common";
 
 const source = '';
-const destination = '../dist/integration-helper';
+const destination = '../../dist/core';
+const nodeModules = '../../node_modules/@angular-element-variants/core';
 const files = [
     'package.json',
     'README.md'
 ];
 
-const observables = files
-    .reduce((obs, file) => obs.concat([from(fs.copyFile(path.join(source, file), path.join(destination, file)))]), [])
-merge(...observables)
+concat(
+    copyPackageDefaults(files, source, destination),
+    syncWithNodeModules(destination, nodeModules)
+)
     .subscribe({
         // next(res) { console.log('Copied files to dist'); },
         error(error) {
