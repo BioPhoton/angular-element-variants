@@ -2,7 +2,7 @@
   "properties": {
     "variant": {
       "type": "string",
-      "description": "Variant name"
+      "description": "Variant name ('standAlone' loads file 'variant.standAlone.ts' and expects an exported variant const)"
     }
   }
 }
