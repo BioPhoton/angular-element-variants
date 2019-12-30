@@ -1,5 +1,6 @@
 {
   "name": "angular-element-variants",
+  "license": "Apache-2.0 see - https://github.com/BioPhoton/angular-element-variants/LICENSE.md",
   "private": false,
   "scripts": {
     "lerna": "lerna",

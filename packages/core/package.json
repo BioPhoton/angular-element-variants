@@ -27,7 +27,7 @@
     "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/core"
   },
   "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
-  "license": "MIT",
+  "license": "Apache-2.0 see - https://github.com/BioPhoton/angular-element-variants/LICENSE.md",
   "engines": {
     "node": ">=10.0.0"
   }
