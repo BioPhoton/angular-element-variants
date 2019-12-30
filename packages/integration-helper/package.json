@@ -1,16 +1,16 @@
 {
   "name": "@angular-element-variants/integration-helper",
-  "description": "Tools for bundling Angular element variants",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BioPhoton/angular-element-variants.git"
-  },
+  "version": "0.0.0-beta.6",
+  "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prebuild": "yarn clean",
     "build": "./../../node_modules/.bin/tsc",
     "postbuild": "./../../node_modules/.bin/ts-node postbuild.ts",
-    "clean": "./../../node_modules/.bin/rimraf dist/integration-helper"
+    "clean": "./../../node_modules/.bin/rimraf dist"
   },
   "keywords": [
     "Angular",
@@ -19,6 +19,18 @@
     "AngularArchtitectAPI"
   ],
   "author": "Michael Hladky",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper"
+  },
   "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
-  "version": "0.0.0-beta.6"
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "@angular-element-variants/integration-helper": "0.0.0-beta.6"
+  }
 }

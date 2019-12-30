@@ -2,7 +2,7 @@ import {concat} from 'rxjs';
 import {copyPackageDefaults, syncWithNodeModules} from "../../tooling/common";
 
 const source = '';
-const destination = '../../dist/core';
+const destination = 'dist';
 const nodeModules = '../../node_modules/@angular-element-variants/core';
 const files = [
     'package.json',

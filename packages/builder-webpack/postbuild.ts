@@ -2,7 +2,7 @@ import {concat} from 'rxjs';
 import {copyPackageDefaults, syncWithNodeModules} from "../../tooling/common";
 
 const source = '';
-const destination = '../../dist/builder-webpack';
+const destination = 'dist';
 const nodeModules = '../../node_modules/@angular-element-variants/builder-webpack';
 const files = [
     'builders.json',

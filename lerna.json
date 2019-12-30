@@ -3,6 +3,9 @@
     "packages/*"
   ],
   "command": {
+    "publishConfig": {
+      "access": "public"
+    },
     "publish": {
       "conventionalCommits": true,
       "message": "chore(release): publish"
