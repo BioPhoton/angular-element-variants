@@ -39,6 +39,6 @@
   },
   "peerDependencies": {
     "@angular-devkit/build-angular": ">=0.801.0",
-    "@angular-element-variants/integration-helper": "0.0.0-beta.6"
+    "@angular-element-variants/core": "0.0.0-beta.11"
   }
 }

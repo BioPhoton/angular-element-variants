@@ -1,9 +1,9 @@
 import {
   VariantConfig,
   CompilationTypes,
-  ElementSet,
   ZoneHandling,
 } from '@angular-element-variants/core';
+import {ElementSet} from "@angular-element-variants/core";
 
 export function getCompilerOptions(variant: VariantConfig): { [key: string]: any } {
   const compilerOptions: any = {};
