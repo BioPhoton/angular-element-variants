@@ -6,6 +6,9 @@
   "files": [
     "builders.json"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "Angular",
     "WebComponents",
