@@ -1,4 +1,4 @@
-import {concat} from 'rxjs';
+import {concat, timer} from 'rxjs';
 import {copyPackageDefaults, syncPeerDependencies, syncWithNodeModules} from '../../tooling/common';
 
 const source = '';

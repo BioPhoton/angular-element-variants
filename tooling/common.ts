@@ -35,7 +35,11 @@ export function syncPeerDependencies(sourceFolder: string): Observable<void> {
                     return peerDependencies
                 }, {})
         };
-        return from(fs.writeFile(fileName, JSON.stringify(packageJson), {encoding: 'utf8'}));
+        return concat(
+            // @TODO dist should update from copyPackageDefaults. Needs fix.
+            from(fs.writeFile(path.join(sourceFolder, '/dist/package.json'), JSON.stringify(packageJson, null, 2), {encoding: 'utf8'})),
+            from(fs.writeFile(fileName, JSON.stringify(packageJson, null, 2), {encoding: 'utf8'}))
+        )
     }
     return EMPTY;
 }
