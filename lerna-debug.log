@@ -1,0 +1,7 @@
+0 silly argv { _: [ 'create' ],
+0 silly argv   lernaVersion: '3.20.0',
+0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
+0 silly argv   name: 'test' }
+1 notice cli v3.20.0
+2 verbose rootPath C:\Users\michael\git\angular-element-variants
+3 error

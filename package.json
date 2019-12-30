@@ -4,6 +4,7 @@
   "scripts": {
     "lerna": "lerna",
     "publish": "lerna publish",
+    "build": "yarn build:core && yarn build:integration-helper && yarn build:builder",
     "build:builder": "cd packages/builder-webpack && yarn build",
     "build:core": "cd packages/core && yarn build",
     "build:integration-helper": "cd packages/integration-helper && yarn build",
