@@ -32,6 +32,6 @@
     "node": ">=10.0.0"
   },
   "peerDependencies": {
-    "@angular-element-variants/core": ">=0.0.0-beta.15"
+    "@angular-element-variants/core": "0.0.0-beta.15"
   }
 }
