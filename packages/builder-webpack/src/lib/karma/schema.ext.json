@@ -1,0 +1,5 @@
+{
+  "title": "Angular element variants webpack karma schema for Build Facade",
+  "id": "BuildCustomWebpackKarmaSchema",
+  "description": "Karma target options"
+}

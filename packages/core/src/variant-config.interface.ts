@@ -6,7 +6,9 @@ import {
   ZoneHandling,
 } from './variant-config.constants';
 
-export interface ElementSet<T> { [key: string]: T }
+export interface ElementSet<T> {
+  [key: string]: T;
+}
 
 export interface VariantConfig {
   // general variants config

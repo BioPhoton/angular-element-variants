@@ -22,13 +22,13 @@
     "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/builder-webpack"
   },
   "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
-  "license": "Apache-2.0 see - https://github.com/BioPhoton/angular-element-variants/LICENSE.md",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">=10.0.0"
   },
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "./../../node_modules/.bin/tsc && ./../../node_modules/.bin/ts-node merge-schemes.ts",
+    "build": "./../../node_modules/.bin/tsc && ./../../node_modules/.bin/ts-node tooling/merge-schemes.ts",
     "postbuild": "./../../node_modules/.bin/ts-node postbuild.ts",
     "clean": "./../../node_modules/.bin/rimraf dist/builder-webpack"
   },
@@ -40,6 +40,6 @@
   },
   "peerDependencies": {
     "@angular-devkit/build-angular": ">=0.801.0",
-    "@angular-element-variants/core": "0.0.0-beta.11"
+    "@angular-element-variants/core": "0.0.0-beta.13"
   }
 }

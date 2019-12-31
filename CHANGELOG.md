@@ -7,50 +7,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package angular-element-variants
 
-
-
-
-
 # [0.0.0-beta.12](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.11...v0.0.0-beta.12) (2019-12-30)
 
 **Note:** Version bump only for package angular-element-variants
 
-
-
-
-
 # [0.0.0-beta.11](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.10...v0.0.0-beta.11) (2019-12-30)
-
 
 ### Bug Fixes
 
-* **builder-webpack:** added description ([418b541](https://github.com/BioPhoton/angular-element-variants/commit/418b5410cfd542e74e92cf13e7eab2eed9732413))
-* **general:** clean up ([29686c7](https://github.com/BioPhoton/angular-element-variants/commit/29686c757531863164710095f3fff162f9d9e1fc))
-* **general:** licensing ([a877ece](https://github.com/BioPhoton/angular-element-variants/commit/a877ece59c3c4f4e158605699ec233d5f3793229))
-* **integration-helper:** delete [@ts-lint](https://github.com/ts-lint) comments ([cb187e5](https://github.com/BioPhoton/angular-element-variants/commit/cb187e5b704b895871ee68a76f5177073a0476e6))
-
-
-
-
+- **builder-webpack:** added description ([418b541](https://github.com/BioPhoton/angular-element-variants/commit/418b5410cfd542e74e92cf13e7eab2eed9732413))
+- **general:** clean up ([29686c7](https://github.com/BioPhoton/angular-element-variants/commit/29686c757531863164710095f3fff162f9d9e1fc))
+- **general:** licensing ([a877ece](https://github.com/BioPhoton/angular-element-variants/commit/a877ece59c3c4f4e158605699ec233d5f3793229))
+- **integration-helper:** delete [@ts-lint](https://github.com/ts-lint) comments ([cb187e5](https://github.com/BioPhoton/angular-element-variants/commit/cb187e5b704b895871ee68a76f5177073a0476e6))
 
 # [0.0.0-beta.10](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.9...v0.0.0-beta.10) (2019-12-30)
 
-
 ### Bug Fixes
 
-* **core:** delete interfaces ([297f4de](https://github.com/BioPhoton/angular-element-variants/commit/297f4de0bee6d2f2a5fcb5a607e2eea6865bbbb7))
-
-
-
-
+- **core:** delete interfaces ([297f4de](https://github.com/BioPhoton/angular-element-variants/commit/297f4de0bee6d2f2a5fcb5a607e2eea6865bbbb7))
 
 # [0.0.0-beta.9](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.8...v0.0.0-beta.9) (2019-12-30)
 
 **Note:** Version bump only for package angular-element-variants
-
-
-
-
 
 # [0.0.0-beta.8](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.6...v0.0.0-beta.8) (2019-12-30)
 
