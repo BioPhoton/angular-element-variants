@@ -57,7 +57,7 @@ export function setupBundles(cfg: Configuration, variant: VariantConfig): Config
     ...other
   }: { [key: string]: string[] } = cfg.entry as { [key: string]: string[] };
 
-  if (true) {
+  if (false) {
     console.log('polyfills: ', polyfills);
     console.log('polyfillsEs5: ', polyfillsEs5);
     console.log('scripts: ', scripts);

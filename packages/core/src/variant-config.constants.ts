@@ -51,5 +51,5 @@ export const defaultVariantConfig = {
   runtime: runtimeShipped,
   compilation: CompilationTypes.preCompiled,
   esVersion: EsVersions.es2015,
-  scripts: !scriptsShipped
+  scripts: !scriptsShipped,
 };

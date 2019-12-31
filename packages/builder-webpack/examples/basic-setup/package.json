@@ -10,7 +10,7 @@
     "build:elements": "ng build --project elements -c=angularStyled",
     "serve:elements": "ng serve --project elements -c=angularStyled",
     "serve:demo": "ng serve --project demo"
-    },
+  },
   "private": true,
   "dependencies": {
     "@angular-extensions/elements": "8.7.0",
@@ -42,9 +42,9 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.3",
     "@angular-devkit/build-ng-packagr": "~0.803.3",
-    "@angular-element-variants/builder-webpack": "0.0.0-beta.14",
-    "@angular-element-variants/core": "0.0.0-beta.14",
-    "@angular-element-variants/integration-helper": "0.0.0-beta.14",
+    "@angular-element-variants/builder-webpack": ">=0.0.0-beta.15",
+    "@angular-element-variants/core": "0.0.0-beta.15",
+    "@angular-element-variants/integration-helper": ">=0.0.0-beta.15",
     "@angular/cli": "~8.3.3",
     "@angular/compiler-cli": "~8.2.11",
     "@angular/language-service": "~8.2.11",
