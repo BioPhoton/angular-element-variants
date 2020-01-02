@@ -1,0 +1,141 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "schematics-repo": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/schematics-repo",
+      "sourceRoot": "apps/schematics-repo/src",
+      "prefix": "schematics-repo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/schematics-repo",
+            "index": "apps/schematics-repo/src/index.html",
+            "main": "apps/schematics-repo/src/main.ts",
+            "polyfills": "apps/schematics-repo/src/polyfills.ts",
+            "tsConfig": "apps/schematics-repo/tsconfig.app.json",
+            "assets": [
+              "apps/schematics-repo/src/favicon.ico",
+              "apps/schematics-repo/src/assets"
+            ],
+            "styles": ["apps/schematics-repo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/schematics-repo/src/environments/environment.ts",
+                  "with": "apps/schematics-repo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "schematics-repo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "schematics-repo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "schematics-repo:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/schematics-repo/tsconfig.app.json",
+              "apps/schematics-repo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/schematics-repo/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/schematics-repo/jest.config.js",
+            "tsConfig": "apps/schematics-repo/tsconfig.spec.json",
+            "setupFile": "apps/schematics-repo/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "schematics-repo-e2e": {
+      "root": "apps/schematics-repo-e2e",
+      "sourceRoot": "apps/schematics-repo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/schematics-repo-e2e/cypress.json",
+            "tsConfig": "apps/schematics-repo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "schematics-repo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "schematics-repo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/schematics-repo-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**", "!apps/schematics-repo-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "schematics-repo"
+}
