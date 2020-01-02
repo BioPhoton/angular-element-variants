@@ -1,6 +1,6 @@
 {
   "name": "@angular-element-variants/integration-helper",
-  "version": "0.0.0-beta.19",
+  "version": "0.0.0-beta.21",
   "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
   "main": "dist/index.js",
   "directories": {
@@ -15,7 +15,7 @@
   "scripts": {
     "prebuild": "yarn clean",
     "build": "yarn compile",
-    "postbuild": "ts-node tooling/postbuild.ts",
+    "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist/**/*",
     "compile": "tsc -p tsconfig.build.json"
   },
@@ -37,5 +37,8 @@
   },
   "peerDependencies": {
     "@angular-element-variants/core": "~0.0.0-beta.17"
+  },
+  "devDependencies": {
+    "@angular-element-variants/core": "^0.0.0-beta.21"
   }
 }

@@ -4,11 +4,10 @@
   "private": false,
   "scripts": {
     "lerna": "lerna",
-    "lerna:publish": "lerna publish",
+    "publish": "yarn version && yarn build && lerna publish",
+    "version":"lerna version && lerna run prepare",
+    "version:bump-only":"lerna version --no-git-tag-version",
     "build": "lerna run build",
-    "build:core": "lerna run --scope @angular-element-variants/core build",
-    "build:builder-webpack": "lerna run --scope @angular-element-variants/builder-webpack build",
-    "build:integration-helper": "lerna run --scope @angular-element-variants/integration-helper build",
     "format": "prettier --write \"**/*.{js,ts,html,md}\""
   },
   "devDependencies": {
@@ -39,13 +38,14 @@
     "prettier": "^1.19.1",
     "quicktype": "^15.0.174",
     "rimraf": "^3.0.0",
-    "rxjs": "^6.4.0",
+    "rxjs": "^6.5.4",
     "schematics-utilities": "^2.0.0",
     "ts-jest": "^24.0.0",
-    "ts-node": "~8.3.0",
+    "ts-node": "^8.5.4",
     "tslib": "^1.10.0",
     "tslint": "~5.18.0",
-    "typescript": "3.6.4"
+    "typescript": "3.6.4",
+    "webpack-merge": "^4.2.2"
   },
   "husky": {
     "hooks": {

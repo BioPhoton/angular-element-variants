@@ -12,7 +12,6 @@ export function getCompilerOptions(variant: VariantConfig): { [key: string]: any
       compilerOptions.ngZone = ngZone;
     }
   }
-  console.log('Provider compilerOptions: ', compilerOptions);
   return compilerOptions;
 }
 
