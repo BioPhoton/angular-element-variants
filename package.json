@@ -1,33 +1,77 @@
 {
-  "name": "angular-element-vatiants",
-  "version": "0.0.0",
+  "name": "angular-element-variants",
+  "license": "Apache-2.0",
+  "private": false,
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "tsc": "tsc",
-    "compile:tooling": "tsc",
-    "post:compile": "ts-node -P tooling/tsconfig.tooling.json tooling/post-compile.ts",
-    "prepare-publish": "npm run compile:tooling && npm run post:compile",
-    "lib:publish": "cd ./dist/angular-element-variants/ && npm publish",
-    "publish": "npm run prepare-publish && npm run lib:publish"
+    "lerna": "lerna",
+    "lerna:publish": "lerna publish",
+    "build": "lerna run build",
+    "build:core": "lerna run --scope @angular-element-variants/core build",
+    "build:builder-webpack": "lerna run --scope @angular-element-variants/builder-webpack build",
+    "build:integration-helper": "lerna run --scope @angular-element-variants/integration-helper build",
+    "format": "prettier --write \"**/*.{js,ts,html,md}\""
   },
-  "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@angular-devkit/build-angular": "^0.803.0",
+    "@angular/compiler": "^8.2.2",
+    "@angular/compiler-cli": "^8.2.2",
     "@angular/core": "^8.2.13",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-angular": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@types/fs-extra": "^8.0.1",
-    "@types/node": "^8.10.58",
+    "@types/jest": "^24.0.0",
+    "@types/lodash": "^4.14.118",
+    "@types/node": "~13.1.0",
+    "@types/webpack": "^4.4.26",
+    "@types/webpack-dev-server": "^3.1.5",
+    "@types/webpack-merge": "^4.1.3",
+    "cpy-cli": "^3.0.0",
+    "cz-conventional-changelog": "^3.0.2",
     "fs-extra": "^8.1.0",
     "gzip-all": "1.0.0",
+    "husky": "^3.0.9",
+    "jest": "^24.7.1",
+    "lerna": "^3.20.0",
+    "lint-staged": "^9.4.3",
+    "lodash": "^4.17.11",
     "node-ts": "^5.0.2",
+    "prettier": "^1.19.1",
+    "quicktype": "^15.0.174",
+    "rimraf": "^3.0.0",
     "rxjs": "^6.4.0",
+    "schematics-utilities": "^2.0.0",
+    "ts-jest": "^24.0.0",
     "ts-node": "~8.3.0",
     "tslib": "^1.10.0",
     "tslint": "~5.18.0",
     "typescript": "3.6.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,html,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "endOfLine": "lf",
+    "tabWidth": 2,
+    "printWidth": 100,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "singleQuote": true
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

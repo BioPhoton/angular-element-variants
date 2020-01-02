@@ -1,0 +1,5 @@
+{
+  "title": "Angular element variants webpack browser schema for Build Facade",
+  "id": "BuildCustomWebpackBrowserSchema",
+  "description": "Browser target options"
+}

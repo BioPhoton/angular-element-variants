@@ -1,0 +1,5 @@
+{
+  "title": "Angular element variants webpack server schema for Build Facade",
+  "id": "BuildCustomWebpackServerSchema",
+  "description": "Server target options"
+}

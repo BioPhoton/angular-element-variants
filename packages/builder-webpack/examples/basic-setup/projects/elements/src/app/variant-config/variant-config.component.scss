@@ -1,0 +1,181 @@
+@import "variables";
+@import "general";
+@import "styling";
+
+.consumer {
+  position: relative;
+
+  width: $consumerWidth;
+  height: $consumerHeight;
+
+  margin: $boxWidth/2;
+  > .inner-wrapper {
+    align-items: flex-end;
+  }
+  .application-type {
+    position: absolute;
+    top: -30px;
+    left: auto;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.provider {
+  position: relative;
+  margin: $boxHeight + $boxHeight/4 + $boxBorderWidth*2;
+  z-index: 0;
+
+  height: $providerHeight;
+  width: $providerWidth;
+
+  > .inner-wrapper {
+    align-items: flex-end;
+
+   .wc-sign {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.box {
+  height: $boxHeight;
+  width: $boxWidth;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .inner-wrapper {
+    align-items: flex-end;
+
+    &:after {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+}
+
+.zone {
+  .inner-wrapper:after {
+    content: 'ZONE';
+  }
+}
+
+.css {
+  .inner-wrapper:after {
+    content: 'CSS';
+  }
+}
+
+.utils {
+  .inner-wrapper:after {
+    content: 'UTIL';
+  }
+}
+
+.libs {
+  .inner-wrapper:after {
+    content: 'LIB';
+  }
+}
+
+
+//
+$consumerBoxSpacing: $boxHeight/2 + $boxBorderWidth*2 + $boxHeight;
+$consumerVOffset: $boxWidth/2 + $boxBorderWidth;
+// CSS box
+consumer-overlays.overlays .box {
+  position: absolute;
+  .arrow {
+    position: absolute;
+    overflow: visible;
+    width: 100%;
+  }
+
+  &.css {
+    top: $consumerBoxSpacing * 0 + $boxHeight/4;
+    left: - $consumerVOffset;
+
+    .arrow {
+      right: -$boxWidth;
+      top: $boxHeight/2;
+      path.arrow-line {
+        d: path("M 0 0 Q 160 0 160 230");
+      }
+    }
+  }
+
+  &.zone {
+    top: $consumerBoxSpacing * 1;
+    left: - $consumerVOffset;
+
+    .arrow {
+      right: -$boxWidth;
+      top: $boxHeight/2;
+      path.arrow-line {
+        d: path("M 0 0 Q 120 0 120 150");
+      }
+    }
+  }
+
+  &.utils {
+    top: $consumerBoxSpacing * 0 + $boxHeight/4;
+    right: - $consumerVOffset;
+
+    .arrow {
+      left: -$boxBorderWidth;
+      top: $boxHeight/2;
+      path.arrow-line {
+        d: path("M 0 0 Q -160 0 -160 230");
+      }
+    }
+  }
+
+  &.libs {
+    top: $consumerBoxSpacing * 1;
+    right: - $consumerVOffset;
+
+    .arrow {
+      left: -$boxBorderWidth;
+      top: $boxHeight/2;
+      path.arrow-line {
+        d: path("M 0 0 Q -120 0 -120 150");
+      }
+    }
+  }
+}
+
+//
+// Specifics Overlays Styles For Consumer ===================================================
+$providerVOffset: $boxWidth/2 + $boxBorderWidth * 2;
+$providerHOffset: $boxHeight/2 + $boxBorderWidth * 2;
+// CSS box
+provider-overlays.overlays .box {
+  position: absolute;
+
+  &.utils {
+    top: -$providerHOffset;
+    right: -$providerVOffset;
+  }
+
+  &.css {
+    top: 50%;
+    margin-top: -$boxHeight/2;
+    right: -$providerVOffset;
+  }
+
+  &.zone {
+    bottom: -$providerHOffset;
+    right: -$providerVOffset;
+  }
+
+  &.libs {
+    bottom: -$providerHOffset;
+    left: -$providerVOffset;
+  }
+}
+

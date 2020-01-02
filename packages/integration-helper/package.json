@@ -1,0 +1,41 @@
+{
+  "name": "@angular-element-variants/integration-helper",
+  "version": "0.0.0-beta.19",
+  "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn compile",
+    "postbuild": "ts-node tooling/postbuild.ts",
+    "clean": "rimraf dist/**/*",
+    "compile": "tsc -p tsconfig.build.json"
+  },
+  "keywords": [
+    "Angular",
+    "WebComponents",
+    "Bunlding",
+    "AngularArchtitectAPI"
+  ],
+  "author": "Michael Hladky",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper"
+  },
+  "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "peerDependencies": {
+    "@angular-element-variants/core": "~0.0.0-beta.17"
+  }
+}

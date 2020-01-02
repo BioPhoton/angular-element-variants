@@ -1,0 +1,49 @@
+{
+  "name": "@angular-element-variants/builder-webpack",
+  "version": "0.0.0-beta.20",
+  "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist/**/*",
+    "builders.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "Angular",
+    "WebComponents",
+    "Bunlding",
+    "AngularArchtitectAPI"
+  ],
+  "author": "Michael Hladky",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/builder-webpack"
+  },
+  "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn compile && yarn merge-schemes",
+    "postbuild": "ts-node tooling/postbuild.ts",
+    "clean": "rimraf dist**/*",
+    "compile": "tsc -p tsconfig.build.json",
+    "merge-schemes": "ts-node tooling/merge-schemes.ts"
+  },
+  "builders": "builders.json",
+  "dependencies": {
+    "ts-node": "^8.5.2",
+    "webpack-merge": "^4.2.1"
+  },
+  "peerDependencies": {
+    "@angular-devkit/build-angular": ">=0.801.0",
+    "@angular-element-variants/core": "~0.0.0-beta.17"
+  }
+}

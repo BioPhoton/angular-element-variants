@@ -1,0 +1,44 @@
+{
+  "/elements-special/*": {
+    "target": "http://localhost:4243",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "/elements-special": ""
+    },
+    "logLevel": "debug"
+  },
+  "/element1/*": {
+    "target": "http://localhost:4210",
+    "secure": false,
+    "pathRewrite": {
+      "/element1": ""
+    },
+    "logLevel": "debug"
+  },
+  "/element2/*": {
+    "target": "http://localhost:4220",
+    "secure": false,
+    "pathRewrite": {
+      "/element2": ""
+    },
+    "logLevel": "debug"
+  },
+  "/element3/*": {
+    "target": "http://localhost:4230",
+    "secure": false,
+    "pathRewrite": {
+      "/element3": ""
+    },
+    "logLevel": "debug"
+  },
+  "/elements/*": {
+    "target": "http://localhost:4242",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "/elements": ""
+    },
+    "logLevel": "debug"
+  }
+}
