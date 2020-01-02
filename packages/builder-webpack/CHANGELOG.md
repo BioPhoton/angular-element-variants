@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-beta.17](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/builder-webpack/compare/v0.0.0-beta.16...v0.0.0-beta.17) (2020-01-02)
+
+
+### Bug Fixes
+
+* **tooling:** changes main package entries and folders ([1c82118](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/builder-webpack/commit/1c821184ccd822f60565e8f1029a00395cc62409))
+
+
+
+
+
+
 # [0.0.0-beta.16](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/builder-webpack/compare/v0.0.0-beta.15...v0.0.0-beta.16) (2019-12-31)
 
 **Note:** Version bump only for package @angular-element-variants/builder-webpack
