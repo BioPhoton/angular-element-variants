@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-beta.19](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.18...v0.0.0-beta.19) (2020-01-02)
+
+
+### Bug Fixes
+
+* **peerdependencies:** use the ~ comparison operator ([4abac4d](https://github.com/BioPhoton/angular-element-variants/commit/4abac4d6cffd3a1c000a057e0f816194d00c3060))
+* **tooling:** rename for yarn use ([67698de](https://github.com/BioPhoton/angular-element-variants/commit/67698de30ebac47672fa51df169dfaf8e4813c7c))
+
+
+
+
+
 # [0.0.0-beta.18](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.17...v0.0.0-beta.18) (2020-01-02)
 
 **Note:** Version bump only for package angular-element-variants
