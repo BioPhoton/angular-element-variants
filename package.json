@@ -26,6 +26,7 @@
     "@types/webpack-dev-server": "^3.1.5",
     "@types/webpack-merge": "^4.1.3",
     "cpy-cli": "^3.0.0",
+    "cz-conventional-changelog": "^3.0.2",
     "fs-extra": "^8.1.0",
     "gzip-all": "1.0.0",
     "husky": "^3.0.9",
@@ -66,5 +67,10 @@
     "bracketSpacing": true,
     "arrowParens": "avoid",
     "singleQuote": true
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

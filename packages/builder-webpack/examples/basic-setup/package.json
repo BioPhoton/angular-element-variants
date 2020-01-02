@@ -1,5 +1,5 @@
 {
-  "name": "elements-poc",
+  "name": "Angular Element Variants Basic Setup",
   "version": "0.0.0",
   "scripts": {
     "test:it": "ts-node --pretty -P ./tooling/tsconfig.tooling.json ./tooling/test.ts",
