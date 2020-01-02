@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-beta.18](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/compare/v0.0.0-beta.17...v0.0.0-beta.18) (2020-01-02)
+
+**Note:** Version bump only for package @angular-element-variants/integration-helper
+
+
+
+
+
 # [0.0.0-beta.17](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/compare/v0.0.0-beta.16...v0.0.0-beta.17) (2020-01-02)
 
 
