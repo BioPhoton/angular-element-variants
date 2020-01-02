@@ -1,25 +1,13 @@
-import { concat } from 'rxjs';
-import {
-  copyPackageDefaults,
-  syncPeerDependencies,
-  syncWithNodeModules,
-} from '../../tooling/common';
+import {concat} from 'rxjs';
+import {copyFolders, syncPeerDependencies} from '../../../tooling/common';
 
-const source = '';
-const destination = 'dist';
-const nodeModules = '../../node_modules/@angular-element-variants/builder-webpack';
-const files = ['builders.json', 'package.json', 'README.md'];
+const root = '../';
+const dist = 'dist';
+const nodeModulesSubFolder = '../../../node_modules/@angular-element-variants/builder-webpack';
+const packageFiles = ['builders.json', 'package.json', 'README.md'];
 
 concat(
-  syncPeerDependencies(__dirname),
-  copyPackageDefaults(files, source, destination),
-  syncWithNodeModules(destination, nodeModules)
-).subscribe({
-  // next(res) { console.log('Copied files to dist'); },
-  error(error) {
-    console.error('ERROR', error);
-  },
-  complete() {
-    console.log('COMPLETE');
-  },
-});
+    // syncPeerDependencies(root),
+    // copyFolders(root, dist, packageFiles),
+    // copyFolders(dist, nodeModulesSubFolder)
+).subscribe();

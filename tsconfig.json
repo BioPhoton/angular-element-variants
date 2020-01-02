@@ -1,30 +1,20 @@
 {
+  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "target": "es6",
-    "lib": [
-      "dom",
-      "es2015",
-      "es2016",
-      "es2017"
-    ],
-    "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "forceConsistentCasingInFileNames": true,
-    "strictPropertyInitialization": false,
-    "strictNullChecks": false,
-    "pretty": true,
-    "sourceMap": true,
-    "declaration": true,
-    "stripInternal": true,
-    "skipLibCheck": true
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "compileOnSave": false,
-  "buildOnSave": false
+    "baseUrl": "./packages",
+    "paths": {
+      "@angular-element-variants/core": [
+        "core/src"
+      ],
+      "@angular-element-variants/builder-webpack": [
+        "builder-webpack/src"
+      ],
+      "@angular-element-variants/integration-helper": [
+        "integration-helper/src"
+      ],
+      "@angular-element-variants/*": [
+        "*/src"
+      ]
+    }
+  }
 }

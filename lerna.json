@@ -3,6 +3,9 @@
     "packages/*"
   ],
   "command": {
+    "run": {
+      "npmClient": "yarn"
+    },
     "publish": {
       "conventionalCommits": true,
       "message": "chore(release): publish"

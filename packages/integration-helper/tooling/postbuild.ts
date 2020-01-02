@@ -1,25 +1,13 @@
-import { concat, timer } from 'rxjs';
-import {
-  copyPackageDefaults,
-  syncPeerDependencies,
-  syncWithNodeModules,
-} from '../../tooling/common';
+import {concat} from 'rxjs';
+import {copyFolders, syncPeerDependencies,} from '../../../tooling/common';
 
-const source = '';
-const destination = 'dist';
+const root = '../';
+const dist = '../dist';
 const nodeModules = '../../node_modules/@angular-element-variants/integration-helper';
 const files = ['package.json', 'README.md'];
 
 concat(
-  syncPeerDependencies(__dirname),
-  copyPackageDefaults(files, source, destination),
-  syncWithNodeModules(destination, nodeModules)
-).subscribe({
-  // next(res) { console.log('Copied files to dist'); },
-  error(error) {
-    console.error('ERROR', error);
-  },
-  complete() {
-    console.log('COMPLETE');
-  },
-});
+    // syncPeerDependencies(root),
+    // copyFolders(root, dist, files),
+    // copyFolders(dist, nodeModules)
+).subscribe();

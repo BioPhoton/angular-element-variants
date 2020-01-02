@@ -1,12 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./packages",
-    "paths": {
-      "@angular-element-variants/core": ["core/src"],
-      "@angular-element-variants/builder-webpack": ["builder-webpack/src"],
-      "@angular-element-variants/integration-helper": ["integration-helper/src"],
-      "@angular-element-variants/*": ["*/src"]
-    },
     "moduleResolution": "node",
     "module": "commonjs",
     "target": "es6",
@@ -29,7 +23,8 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
   "compileOnSave": false,
   "buildOnSave": false

@@ -2,21 +2,22 @@
   "name": "@angular-element-variants/core",
   "version": "0.0.0-beta.17",
   "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "directories": {
-    "lib": "src"
+    "lib": "dist"
   },
   "files": [
-    "src"
+    "dist/**/*"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "./../../node_modules/.bin/tsc",
-    "postbuild": "./../../node_modules/.bin/ts-node postbuild.ts",
-    "clean": "./../../node_modules/.bin/rimraf dist"
+    "build": "yarn compile",
+    "postbuild": "ts-node tooling/postbuild.ts",
+    "clean": "rimraf dist/**/*",
+    "compile":"tsc -p tsconfig.build.json"
   },
   "keywords": [
     "Angular",
