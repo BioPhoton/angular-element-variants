@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "lerna": "lerna",
-    "publish": "lerna publish",
+    "lerna:publish": "lerna publish",
     "build": "lerna run build",
     "build:core": "lerna run --scope @angular-element-variants/core build",
     "build:builder-webpack": "lerna run --scope @angular-element-variants/builder-webpack build",
