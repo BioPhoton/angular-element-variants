@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.0.0-beta.20](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.19...v0.0.0-beta.20) (2020-01-02)
+
+
+### Bug Fixes
+
+* **builder-webpack:** builder.json imports changed ([b62d919](https://github.com/BioPhoton/angular-element-variants/commit/b62d91959ad7745aaf9c94db9e2c1a3a4de388a1))
+
+
+
+
+
 # [0.0.0-beta.19](https://github.com/BioPhoton/angular-element-variants/compare/v0.0.0-beta.18...v0.0.0-beta.19) (2020-01-02)
 
 
