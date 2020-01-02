@@ -7,49 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @angular-element-variants/integration-helper
 
-
-
-
-
-
 # [0.0.0-beta.19](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/compare/v0.0.0-beta.18...v0.0.0-beta.19) (2020-01-02)
-
 
 ### Bug Fixes
 
-* **peerdependencies:** use the ~ comparison operator ([4abac4d](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/commit/4abac4d6cffd3a1c000a057e0f816194d00c3060))
-
-
-
-
+- **peerdependencies:** use the ~ comparison operator ([4abac4d](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/commit/4abac4d6cffd3a1c000a057e0f816194d00c3060))
 
 # [0.0.0-beta.18](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/compare/v0.0.0-beta.17...v0.0.0-beta.18) (2020-01-02)
 
 **Note:** Version bump only for package @angular-element-variants/integration-helper
 
-
-
-
-
 # [0.0.0-beta.17](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/compare/v0.0.0-beta.16...v0.0.0-beta.17) (2020-01-02)
-
 
 ### Bug Fixes
 
-* **tooling:** changes main package entries and folders ([1c82118](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/commit/1c821184ccd822f60565e8f1029a00395cc62409))
-
-
-
-
-
+- **tooling:** changes main package entries and folders ([1c82118](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/commit/1c821184ccd822f60565e8f1029a00395cc62409))
 
 # [0.0.0-beta.16](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/compare/v0.0.0-beta.15...v0.0.0-beta.16) (2019-12-31)
 
 **Note:** Version bump only for package @angular-element-variants/integration-helper
-
-
-
-
 
 # [0.0.0-beta.15](https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper/compare/v0.0.0-beta.14...v0.0.0-beta.15) (2019-12-31)
 

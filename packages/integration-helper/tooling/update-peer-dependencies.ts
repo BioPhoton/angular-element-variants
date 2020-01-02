@@ -1,5 +1,5 @@
 import { syncPeerDependencies } from '../../../tooling/common';
+import * as path from 'path';
 
-const root = '../';
-syncPeerDependencies(root)
-  .subscribe();
+const root = path.join(__dirname, '..');
+syncPeerDependencies(root).subscribe();

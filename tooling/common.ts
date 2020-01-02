@@ -5,7 +5,6 @@ import { concat, EMPTY, from, Observable } from 'rxjs';
 export function syncPeerDependencies(sourceFolder: string): Observable<void> {
   const fileName = path.join(sourceFolder, 'package.json');
   const packageJson = resolveFile(fileName);
-
   if (packageJson.peerDependencies !== undefined) {
     const [packageScope, packageName] = packageJson.name.split('/');
     const packageVersion = packageJson.version;
@@ -24,29 +23,15 @@ export function syncPeerDependencies(sourceFolder: string): Observable<void> {
           return peerDependencies;
         }, {}),
     };
+
     return concat(
-      from(fs
-        .writeFile(
-          fileName,
-          JSON.stringify(packageJson, null, 2),
-          { encoding: 'utf8' },
-        ),
-      ),
+      from(fs.writeFile(fileName, JSON.stringify(packageJson, null, 2), { encoding: 'utf8' }))
     );
   }
   return EMPTY;
 }
 
 function resolveFile(path: string): any {
-  if (path.endsWith('.ts')) {
-    // Register TS compiler lazily
-    require('ts-node').register({
-      compilerOptions: {
-        module: 'commonjs',
-      },
-    });
-  }
-
   if (path.endsWith('.json')) {
     // Register TS compiler lazily
     require('ts-node').register({
@@ -56,8 +41,18 @@ function resolveFile(path: string): any {
         module: 'commonjs',
       },
     });
+    const json = require(path);
+    return json;
   }
 
+  if (path.endsWith('.ts')) {
+    // Register TS compiler lazily
+    require('ts-node').register({
+      compilerOptions: {
+        module: 'commonjs',
+      },
+    });
+  }
   const packageJson = require(path);
   // If the user provides a configuration in TS file
   // then there are 2 cases for exporing an object. The first one is:
