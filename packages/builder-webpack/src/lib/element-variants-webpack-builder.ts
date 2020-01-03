@@ -14,13 +14,17 @@ type ElementVariantsWebpackConfig =
   | ((baseWebpackConfig: Configuration, buildOptions: any) => Promise<Configuration>);
 
 export class ElementVariantsWebpackBuilder {
-  static async buildWebpackConfig(
+  static buildWebpackConfig(
     root: Path,
     variant: VariantConfig,
     baseWebpackConfig: Configuration,
     buildOptions: any
-  ): Promise<Configuration> {
+  ): Configuration {
     if (!variant) {
+      return baseWebpackConfig;
+    }
+
+    if (variant.name === undefined) {
       return baseWebpackConfig;
     }
 

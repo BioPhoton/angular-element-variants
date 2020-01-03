@@ -15,6 +15,8 @@
   "scripts": {
     "prebuild": "yarn run clean",
     "build": "yarn run compile",
+    "postbuild": "yarn test",
+    "test": "jest --config ./jest.config.js",
     "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist/**/*",
     "compile": "tsc -p tsconfig.build.json"

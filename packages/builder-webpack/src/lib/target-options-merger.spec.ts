@@ -1,37 +1,45 @@
 import { mergeTargetOptions } from './target-options-merger';
 
-describe('Target options merger test', () => {
+describe('Target options merger override test', () => {
   it('Should replace all', () => {
     const baseOptions = {
       outputPath: 'dist/elements',
-      index: 'projects/elements/src/index.html',
-      main: 'projects/elements/src/main.ts',
-      polyfills: 'projects/elements/src/polyfills.ts',
-      tsConfig: 'projects/elements/tsconfig.app.json',
-      aot: false,
-      assets: [] as string[],
-      styles: ['projects/elements/src/styles.scss'],
-      scripts: [] as string[],
+      styles: ['projects/elements/src/styles.scss']
     };
     const applyOptions = {
-      variant: '',
+      outputPath: 'override',
       styles: [] as string[],
     };
 
     const output = mergeTargetOptions(baseOptions, applyOptions);
 
     const expected = {
-      outputPath: 'dist/elements',
-      index: 'projects/elements/src/index.html',
-      main: 'projects/elements/src/main.ts',
-      polyfills: 'projects/elements/src/polyfills.ts',
-      tsConfig: 'projects/elements/tsconfig.app.json',
-      aot: false,
-      assets: [] as string[],
-      styles: [] as string[],
-      scripts: [] as string[],
+      outputPath: 'override',
+      styles: [] as string[]
     };
 
-    expect(output).toEqual(expected);
+    expect(output.outputPath).toBe(expected.outputPath);
+  });
+});
+
+describe('Target options merger skip empty test', () => {
+  it('Should replace all', () => {
+    const baseOptions = {
+      outputPath: 'dist/elements',
+      styles: ['projects/elements/src/styles.scss']
+    };
+    const applyOptions = {
+      outputPath: undefined as any,
+      styles: undefined as any,
+    };
+
+    const output = mergeTargetOptions(baseOptions, applyOptions);
+
+    const expected = {
+      outputPath: 'dist/elements',
+      styles: ['projects/elements/src/styles.scss']
+    };
+
+    expect(output.outputPath).toBe(expected.outputPath);
   });
 });
