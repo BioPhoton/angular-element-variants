@@ -13,8 +13,8 @@
     "access": "public"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn compile",
+    "prebuild": "yarn run clean",
+    "build": "yarn run compile",
     "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist/**/*",
     "compile": "tsc -p tsconfig.build.json"
@@ -36,7 +36,7 @@
     "node": ">=10.0.0"
   },
   "peerDependencies": {
-    "@angular-element-variants/core": "~0.0.0-beta.17"
+    "@angular-element-variants/core": "^0.0.0-beta.23"
   },
   "devDependencies": {
     "@angular-element-variants/core": "^0.0.0-beta.23"

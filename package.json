@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "lerna": "lerna",
-    "publish": "yarn version && yarn build && lerna publish",
+    "publish": "yarn run version && yarn run build && lerna publish",
     "version":"lerna version && lerna run prepare",
     "version:bump-only":"lerna version --no-git-tag-version",
     "build": "lerna run build",

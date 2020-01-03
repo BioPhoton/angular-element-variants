@@ -30,8 +30,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn compile && yarn merge-schemes",
+    "prebuild": "yarn run clean",
+    "build": "yarn run compile && yarn run merge-schemes",
     "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist**/*",
     "compile": "tsc -p tsconfig.build.json",
@@ -40,7 +40,7 @@
   "builders": "builders.json",
   "peerDependencies": {
     "@angular-devkit/build-angular": ">=0.801.0",
-    "@angular-element-variants/core": "^0.0.0-beta.22"
+    "@angular-element-variants/core": "^0.0.0-beta.23"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": ">=0.801.0",
