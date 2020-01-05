@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Installs and sets up the angular-element-variants library",
+      "factory": "./ng-add/index#ngAdd"
+    }
+  }
+}
