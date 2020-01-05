@@ -8,8 +8,11 @@
   },
   "files": [
     "dist/**/*",
-    "builders.json"
+    "builders.json",
+    "collection.json"
   ],
+  "builders": "builders.json",
+  "schematics": "./collection.json",
   "publishConfig": {
     "access": "public"
   },
@@ -31,21 +34,27 @@
   },
   "scripts": {
     "prebuild": "yarn run clean",
-    "build": "yarn run compile && yarn run merge-schemes",
-    "postbuild": "yarn test",
+    "build": "yarn run compile",
+    "postbuild": "yarn run prepare:builder && yarn run prepare:schematics && yarn run updatePeer",
     "test": "jest --config ./jest.config.js",
-    "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist**/*",
     "compile": "tsc -p tsconfig.build.json",
-    "merge-schemes": "ts-node tooling/merge-schemes.ts"
+    "updatePeer": "ts-node tooling/update-peer-dependencies.ts",
+    "prepare:schematics": "ts-node tooling/prepare-schematics.ts",
+    "prepare:builder": "ts-node tooling/merge-builder-schemes.ts"
   },
-  "builders": "builders.json",
   "peerDependencies": {
     "@angular-devkit/build-angular": ">=0.801.0",
-    "@angular-element-variants/core": "^0.0.0-beta.23"
+    "@angular-element-variants/core": "^0.0.0-beta.19"
+  },
+  "dependencies": {
+    "ts-node": "^8.5.4"
   },
   "devDependencies": {
+    "@angular-element-variants/core": "^0.0.0-beta.19",
     "@angular-devkit/build-angular": ">=0.801.0",
-    "@angular-element-variants/core": "^0.0.0-beta.23"
+    "@angular-devkit/core": "^8.3.21",
+    "@angular-devkit/schematics": "^8.3.21",
+    "@angular-devkit/schematics-cli": "^0.803.21"
   }
 }

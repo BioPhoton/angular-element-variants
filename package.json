@@ -5,8 +5,8 @@
   "scripts": {
     "lerna": "lerna",
     "publish": "yarn run version && yarn run build && lerna publish",
-    "version":"lerna version && lerna run prepare",
-    "version:bump-only":"lerna version --no-git-tag-version",
+    "version": "lerna version && lerna run prepare",
+    "version:bump-only": "lerna version --no-git-tag-version",
     "build": "lerna run build",
     "format": "prettier --write \"**/*.{js,ts,html,md}\""
   },
@@ -18,6 +18,7 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-angular": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@types/copy": "^0.3.1",
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "^24.0.0",
     "@types/lodash": "^4.14.118",
@@ -73,5 +74,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@angular-devkit/schematics-cli": "^0.803.21",
+    "@angular/cli": "^8.3.21",
+    "copy": "^0.3.2"
   }
 }

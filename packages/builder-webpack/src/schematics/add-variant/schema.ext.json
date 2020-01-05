@@ -1,17 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "title": "Angular Element Variants Ng Add Schema",
-  "$id": "angular-element-variants/builder-webpack:ng-add",
-  "description": "Adds support for an external library to your project.",
-  "$longDescription": "./index.md",
-  "type": "object",
-  "properties": {
-    "skipPackageJson": {
-      "description": "When true, does not add dependencies to the \"package.json\" file.",
-      "type": "boolean",
-      "default": false
-    }
-  },
-  "required": [
-  ]
+  "title": "Angular Element Variants Add Variant Schema",
+  "$id": "angular-element-variants/builder-webpack:add-variant",
+  "description": "Adds support for an external library to your project."
 }

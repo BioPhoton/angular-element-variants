@@ -184,9 +184,6 @@
           "configurations": {
             "angularStyled": {
               "browserTarget": "elements:build:serveAngularStyled"
-            },
-            "vanillaStandAlone": {
-              "browserTarget": "elements:build:serveVanillaStandAlone"
             }
           }
         },

@@ -1,55 +1,33 @@
 // ZoneHandling: 'None' | 'Injected' | 'Shipped' | 'Scoped'
-export enum ZoneHandling {
-  None = 'None',
-  Injected = 'Injected',
-  Shipped = 'Shipped',
-  Scoped = 'Scoped',
-}
+import { VariantConfig } from './variant-config.interface';
+
+export type ZoneHandling = 'None' | 'Injected' | 'Shipped' | 'Scoped';
 
 // ViewEncapsulation: 0 = Emulated | 1 = Native | 2 = None | 3 = ShadowDom
-export enum ViewEncapsulation {
-  Emulated = 0,
-  Native = 1,
-  None = 2,
-  ShadowDom = 3,
-}
+export type ViewEncapsulation = 0 | 1 | 2 | 3;
 
 // ChangeDetection: 0 = OnPush | 1 = Default
-export enum ChangeDetection {
-  OnPush = 0,
-  Default = 1,
-}
+export type ChangeDetection = 0 | 1;
 
 // EsVersions: 'es5' | 'es2015'
-export enum EsVersions {
-  es5 = 'es5',
-  es2015 = 'es2015',
-}
+export type EsVersions = 'es5' | 'es2015';
 
 // CompilationTypes: 'preCompiled' | 'unCompiled'
-export enum CompilationTypes {
-  preCompiled = 'preCompiled',
-  unCompiled = 'unCompiled',
-}
-// scriptsShipped: true | false
-export const scriptsShipped = true;
-// polyfillsShipped: true | false
-export const polyfillsShipped = true;
-// runtimeShipped: true | false
-export const runtimeShipped = true;
+export type CompilationTypes = 'preCompiled' | 'unCompiled';
 
-export const defaultVariantConfig = {
+
+export const defaultVariantConfig: VariantConfig = {
   // general variants config
   name: 'defaultVariantConfig',
-  zone: ZoneHandling.Shipped,
-  encapsulation: ViewEncapsulation.ShadowDom,
-  changeDetection: ChangeDetection.Default,
-  // bundling config
+  zone: 'Shipped',
   outputPath: '',
   bundleName: '',
-  polyfills: polyfillsShipped,
-  runtime: runtimeShipped,
-  compilation: CompilationTypes.preCompiled,
-  esVersion: EsVersions.es2015,
-  scripts: !scriptsShipped,
+  encapsulation: 3,
+  changeDetection: 1,
+  // bundling config
+  polyfills: true,
+  runtime: false,
+  compilation: 'preCompiled',
+  esVersion: 'es2015',
+  scripts: false,
 };

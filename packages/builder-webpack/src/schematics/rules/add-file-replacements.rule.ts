@@ -1,28 +1,52 @@
-import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
-import { getProject, getWorkspace, parseApplicationProject } from '../utils';
+import { Rule, SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
+import { getProject, getProjectName, getWorkspace, parseApplicationProject } from '../utils';
+import { camelize } from 'tslint/lib/utils';
 
-export function addWebpackBuilder(options: { project: string }): Rule {
+export function addFileReplacements(options: { project: string, variant: string }): Rule {
   return (tree: Tree, context: SchematicContext) => {
-    const path = 'angular.json';
-    // Verifying Angular.json
-    const workspace = getWorkspace(tree, path);
-    // Verifying project
+    const angularPath = 'angular.json';
+    const workspace = getWorkspace(tree, angularPath);
+    const projectName = getProjectName(workspace, options);
     const unsafeProject = getProject(workspace, options);
-    // Verifying project type application
     const project = parseApplicationProject(unsafeProject);
 
+    const variant = camelize(options.variant);
+    if (project.architect.build.configurations[variant]) {
+      throw new SchematicsException(`Configuration for ${variant} already exists!`);
+    }
+
     // adding builder for serve and build target
-    project.architect.build = {
-      ...project.architect.build,
-      builder: '@angular-element-variants/builder-webpack:browser' as any,
+    project.architect.build.configurations = {
+      ...project.architect.build.configurations,
+      [variant]: getBuildVariantConfiguration(projectName, variant),
     };
-    project.architect.serve = {
-      ...project.architect.serve,
-      builder: '@angular-element-variants/builder-webpack:dev-server' as any,
+    project.architect.serve.configurations = {
+      ...project.architect.serve.configurations,
+      [variant]: getServeVariantConfiguration(projectName, variant),
     };
 
-    tree.overwrite(path, JSON.stringify(workspace, null, 2));
+    tree.overwrite(angularPath, JSON.stringify(workspace, null, 2));
 
     return tree;
   };
 }
+
+function getBuildVariantConfiguration(projectName: string, variant: string): any {
+  return {
+    variant,
+    outputPath: `dist/${projectName}-${variant}`,
+    fileReplacements: [
+      {
+        replace: `projects/${projectName}/src/variants/variant.ts`,
+        with: `projects/${projectName}/src/variants/variant.${variant}.ts`,
+      },
+    ],
+  };
+}
+
+function getServeVariantConfiguration(projectName: string, variant: string): any {
+  return {
+    browserTarget: `${projectName}:build`,
+  };
+}
+

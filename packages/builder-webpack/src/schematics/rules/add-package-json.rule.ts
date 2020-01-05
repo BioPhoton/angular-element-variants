@@ -1,9 +1,9 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { addPackageJsonDependency, NodeDependency, NodeDependencyType } from 'schematics-utilities';
 
-export function addPackageJsonDependencies(): Rule {
-  return (host: Tree, context: SchematicContext) => {
-    const dependencies: NodeDependency[] = [
+/*
+*
+*  const dependencies: NodeDependency[] = [
       {
         type: NodeDependencyType.Default,
         version: '~0.0.0',
@@ -15,6 +15,9 @@ export function addPackageJsonDependencies(): Rule {
         name: '@angular-element-variants/builder-webpack',
       },
     ];
+* */
+export function addPackageJsonDependencies(options: unknown, dependencies: NodeDependency[]): Rule {
+  return (host: Tree, context: SchematicContext) => {
 
     dependencies.forEach(dependency => {
       addPackageJsonDependency(host, dependency);

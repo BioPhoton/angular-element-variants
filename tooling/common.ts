@@ -1,6 +1,8 @@
 import * as path from 'path';
+import * as copy from 'copy';
 import * as fs from 'fs-extra';
-import { concat, EMPTY, from, Observable } from 'rxjs';
+import { bindCallback, bindNodeCallback, concat, EMPTY, from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export function syncPeerDependencies(sourceFolder: string): Observable<void> {
   const fileName = path.join(sourceFolder, 'package.json');
@@ -60,4 +62,16 @@ function resolveFile(path: string): any {
   // `export default { ... }`. The ESM format is compiled into:
   // `{ default: { ... } }`
   return packageJson.default || packageJson;
+}
+
+export function globCopy(
+  patterns: string[],
+  dir: string, cb: (error: Error | null, files?: unknown[]) => void
+): Observable<{patterns: string[], num: number}> {
+  return bindNodeCallback(copy)(patterns, dir)
+    .pipe(
+      map((files) => ({ patterns, num: files.length })
+    )
+  );
+
 }

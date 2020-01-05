@@ -1,8 +1,11 @@
 {
   "properties": {
-    "variant": {
+    "project": {
       "type": "string",
-      "description": "Variant name ('standAlone' loads file 'variant.standAlone.ts' and expects an exported variant const)"
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
     }
   }
 }

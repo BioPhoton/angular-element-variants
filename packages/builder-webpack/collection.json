@@ -3,7 +3,13 @@
   "schematics": {
     "ng-add": {
       "description": "Installs and sets up the angular-element-variants library",
-      "factory": "./dist/ng-add/index#ngAdd"
+      "factory": "./dist/schematics/ng-add/index#ngAdd",
+      "schema": "./dist/schematics/ng-add/schema.json"
+    },
+    "add-variant": {
+      "description": "Creates variants folder and default variant.ts file",
+      "factory": "./dist/schematics/add-variant/index#addVariant",
+      "schema": "./dist/schematics/add-variant/schema.json"
     }
   }
 }

@@ -8,7 +8,9 @@ interface CustomSchema {
 }
 
 const wd = process.cwd();
-const schemesToMerge: CustomSchema[] = require(`${wd}/src/lib/schemes`);
+const schemesToMerge: CustomSchema[] = []
+  .concat(require(`${wd}/src/lib/schemes`))
+  .concat(require(`${wd}/src/schematics/schemes`));
 
 for (const customSchema of schemesToMerge) {
   const originalSchema = require(customSchema.originalSchemaPath);

@@ -3,7 +3,6 @@
   "title": "Angular Element Variants Ng Add Schema",
   "$id": "angular-element-variants/builder-webpack:ng-add",
   "description": "Adds support for an external library to your project.",
-  "$longDescription": "./index.md",
   "type": "object",
   "properties": {
     "skipPackageJson": {
