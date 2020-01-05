@@ -35,7 +35,7 @@
   "scripts": {
     "prebuild": "yarn run clean",
     "build": "yarn run compile",
-    "postbuild": "yarn run prepare:builder && yarn run prepare:schematics && yarn run updatePeer",
+    "postbuild": "yarn run prepare:builder && yarn run prepare:schematics",
     "test": "jest --config ./jest.config.js",
     "clean": "rimraf dist**/*",
     "compile": "tsc -p tsconfig.build.json",
