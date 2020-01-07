@@ -172,6 +172,25 @@
                   "with": "projects/elements/src/variants/variant.angularStyled.ts"
                 }
               ]
+            },
+            "standAlone": {
+              "variant": "standAlone",
+              "outputPath": "dist/elements-standAlone",
+              "fileReplacements": [
+                {
+                  "replace": "projects/elements/src/variants/variant.ts",
+                  "with": "projects/elements/src/variants/variant.standAlone.ts"
+                }
+              ]
+            },
+            "serveStandAlone": {
+              "variant": "standAlone",
+              "fileReplacements": [
+                {
+                  "replace": "projects/elements/src/variants/variant.ts",
+                  "with": "projects/elements/src/variants/variant.standAlone.ts"
+                }
+              ]
             }
           }
         },
@@ -184,6 +203,9 @@
           "configurations": {
             "angularStyled": {
               "browserTarget": "elements:build:serveAngularStyled"
+            },
+            "standAlone": {
+              "browserTarget": "elements:build:serveStandAlone"
             }
           }
         },

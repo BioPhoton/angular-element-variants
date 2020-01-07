@@ -39,6 +39,7 @@
     "test": "jest --config ./jest.config.js",
     "clean": "rimraf dist**/*",
     "compile": "tsc -p tsconfig.build.json",
+    "link": "npm link",
     "updatePeer": "ts-node tooling/update-peer-dependencies.ts",
     "prepare:schematics": "ts-node tooling/prepare-schematics.ts",
     "prepare:builder": "ts-node tooling/merge-builder-schemes.ts"

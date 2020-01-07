@@ -3,17 +3,12 @@ import { addPackageJsonDependency, NodeDependency, NodeDependencyType } from 'sc
 
 /*
 *
-*  const dependencies: NodeDependency[] = [
+ const dependencies: NodeDependency[] = [
       {
         type: NodeDependencyType.Default,
         version: '~0.0.0',
         name: '@angular-element-variants/core',
-      },
-      {
-        type: NodeDependencyType.Default,
-        version: '~0.0.0',
-        name: '@angular-element-variants/builder-webpack',
-      },
+      }
     ];
 * */
 export function addPackageJsonDependencies(options: unknown, dependencies: NodeDependency[]): Rule {

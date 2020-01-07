@@ -36,6 +36,7 @@
     "build": "yarn run compile",
     "clean": "rimraf dist**/*",
     "schematics": "schematics",
+    "link": "npm link",
     "compile": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {

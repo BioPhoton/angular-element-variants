@@ -16,6 +16,7 @@
     "prebuild": "yarn clean",
     "build": "yarn compile",
     "clean": "rimraf dist/**/*",
+    "link": "npm link",
     "compile": "tsc -p tsconfig.build.json"
   },
   "keywords": [

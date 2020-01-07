@@ -2,7 +2,7 @@ import { getSystemPath, normalize, Path } from '@angular-devkit/core';
 import { Configuration } from 'webpack';
 import { ElementVariantsWebpackSchema } from './element-variants-webpack-schema';
 import { Observable, of } from 'rxjs';
-import { runtimeShipped, VariantConfig, ZoneHandling } from '@angular-element-variants/core';
+import {VariantConfig } from '@angular-element-variants/core';
 import { mergeConfigs } from './webpack-config-merger';
 
 export const defaultWebpackConfigPath = 'webpack.config.js';
@@ -29,7 +29,7 @@ export class ElementVariantsWebpackBuilder {
     }
 
     // control runtime
-    if (variant.runtime === !runtimeShipped) {
+    if (variant.runtime === false) {
       // do not bundle webpack utilities (expect them to be in consumer)
       delete baseWebpackConfig.optimization.runtimeChunk;
     }
@@ -72,7 +72,7 @@ export function setupBundles(cfg: Configuration, variant: VariantConfig): Config
     console.log('other: ', other);
   }
 
-  const zone: string[] = variant.zone === ZoneHandling.Shipped ? ['zone.js/dist/zone'] : [];
+  const zone: string[] = variant.zone === 'Shipped' ? ['zone.js/dist/zone'] : [];
 
   return {
     ...cfg,

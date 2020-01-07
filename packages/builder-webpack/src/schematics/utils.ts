@@ -1,6 +1,7 @@
 import { SchematicsException, Tree } from '@angular-devkit/schematics';
 import { JsonParseMode, parseJson } from '@angular-devkit/core';
 import { ProjectType, WorkspaceProject, WorkspaceSchema } from 'schematics-utilities';
+import { camelize } from 'tslint/lib/utils';
 
 export function getWorkspace(
   host: Tree,
@@ -72,4 +73,8 @@ export function parseLibraryProject(project: WorkspaceProject<ProjectType>): Wor
   } else {
     return project as WorkspaceProject<ProjectType.Library>;
   }
+}
+
+export function parseVariant(variant: string): string {
+  return camelize(variant);
 }

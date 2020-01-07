@@ -18,6 +18,7 @@
     "test": "jest --config ./jest.config.js",
     "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist/**/*",
+    "link": "npm link",
     "compile": "tsc -p tsconfig.build.json"
   },
   "keywords": [
