@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as copy from 'copy';
 import * as fs from 'fs-extra';
-import { bindCallback, bindNodeCallback, concat, EMPTY, from, Observable } from 'rxjs';
+import { bindNodeCallback, concat, EMPTY, from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export function syncPeerDependencies(sourceFolder: string): Observable<void> {
@@ -66,12 +66,27 @@ function resolveFile(path: string): any {
 
 export function globCopy(
   patterns: string[],
-  dir: string, cb: (error: Error | null, files?: unknown[]) => void
+  dir: string
 ): Observable<{patterns: string[], num: number}> {
   return bindNodeCallback(copy)(patterns, dir)
     .pipe(
       map((files) => ({ patterns, num: files.length })
     )
   );
+}
 
+
+export function _globCopy(
+  patterns: string[],
+  dir: string
+): Observable<any> {
+  const p =  new Promise<any>((resolve, reject) => {
+    copy(patterns, dir, (res, err) => {
+      if(err) {
+        return reject(err);
+      }
+      return resolve(res)
+    })
+  });
+  return from(p);
 }
