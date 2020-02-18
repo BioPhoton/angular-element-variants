@@ -13,10 +13,10 @@
     "access": "public"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn compile",
-    "posbuild": "yarn run prepare:dist",
-    "clean": "rimraf dist/**/*",
+    "prebuild": "npm run clean",
+    "build": "npm run compile",
+    "postbuild": "npm run prepare:dist",
+    "clean": "npx rimraf dist/**/*",
     "link": "npm link",
     "compile": "tsc -p tsconfig.build.json",
     "prepare:dist": "ts-node tooling/prepare-dist.ts"

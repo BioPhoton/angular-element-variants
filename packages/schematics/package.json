@@ -32,12 +32,13 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "prebuild": "yarn run clean",
-    "build": "yarn run compile",
-    "postbuild": "yarn run prepare:dist",
+    "prebuild": "npm run clean",
+    "build": "npm run compile",
+    "postbuild": "npm run prepare:dist",
     "clean": "rimraf dist**/*",
     "schematics": "schematics",
     "link": "npm link",
+    "link-core": "npm link @angular-element-variants/core",
     "compile": "tsc -p tsconfig.build.json",
     "prepare:dist": "ts-node tooling/prepare-dist.ts"
   },

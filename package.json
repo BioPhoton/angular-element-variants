@@ -4,10 +4,12 @@
   "private": false,
   "scripts": {
     "lerna": "lerna",
-    "publish": "yarn run version && yarn run build && lerna publish",
+    "publish": "npm run version && npm run build && lerna publish",
     "version": "lerna version && lerna run prepare",
     "version:bump-only": "lerna version --no-git-tag-version",
+    "build-core": "cd packages/core && npm run build",
     "build": "lerna run build",
+    "uplink-core": "cd packages/core && npm link",
     "format": "prettier --write \"**/*.{js,ts,html,md}\""
   },
   "devDependencies": {
@@ -38,7 +40,6 @@
     "node-ts": "^5.0.2",
     "prettier": "^1.19.1",
     "quicktype": "^15.0.174",
-    "rimraf": "^3.0.0",
     "rxjs": "^6.5.4",
     "schematics-utilities": "^2.0.0",
     "ts-jest": "^24.0.0",

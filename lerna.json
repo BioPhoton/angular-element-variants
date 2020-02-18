@@ -4,7 +4,7 @@
   ],
   "command": {
     "run": {
-      "npmClient": "yarn"
+      "npmClient": "npm"
     },
     "publish": {
       "conventionalCommits": true,
