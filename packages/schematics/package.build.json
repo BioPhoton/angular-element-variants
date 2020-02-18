@@ -1,23 +1,22 @@
 {
-  "name": "@angular-element-variants/builder-webpack",
+  "name": "@angular-element-variants/schematics",
   "version": "0.0.0-beta.24",
   "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
-  "main": "dist/index.js",
+  "main": "collection.json",
   "directories": {
     "lib": "dist"
   },
   "files": [
     "dist/**/*",
-    "builders.json",
     "collection.json"
   ],
-  "builders": "builders.json",
-  "schematics": "./collection.json",
   "publishConfig": {
     "access": "public"
   },
+  "schematics": "./collection.json",
   "keywords": [
     "Angular",
+    "schematics",
     "WebComponents",
     "Bunlding",
     "AngularArchtitectAPI"
@@ -35,29 +34,13 @@
   "scripts": {
     "prebuild": "yarn run clean",
     "build": "yarn run compile",
-    "postbuild": "yarn run prepare:builder && yarn run prepare:schematics && yarn run prepare:dist",
-    "test": "jest --config ./jest.config.js",
     "clean": "rimraf dist**/*",
-    "compile": "tsc -p tsconfig.build.json",
+    "schematics": "schematics",
     "link": "npm link",
-    "prepare:schematics": "ts-node tooling/prepare-schematics.ts",
-    "prepare:builder": "ts-node tooling/merge-builder-schemes.ts",
-    "prepare:dist": "ts-node tooling/prepare-dist.ts"
-  },
-  "peerDependencies": {
-    "@angular-devkit/build-angular": ">=0.801.0",
-    "@angular-element-variants/core": "^0.0.0-beta.19"
-  },
-  "dependencies": {
-    "@types/copyfiles": "^2.1.1"
+    "compile": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": ">=0.801.0",
     "@angular-devkit/core": "^8.3.21",
-    "@angular-devkit/schematics": "^8.3.21",
-    "@angular-devkit/schematics-cli": "^0.803.21",
-    "@angular-element-variants/core": "^0.0.0-beta.19",
-    "copyfiles": "^2.2.0",
-    "ts-node": "^8.5.4"
+    "@angular-devkit/schematics": "^8.3.21"
   }
 }

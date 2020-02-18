@@ -74,19 +74,3 @@ export function globCopy(
     )
   );
 }
-
-
-export function _globCopy(
-  patterns: string[],
-  dir: string
-): Observable<any> {
-  const p =  new Promise<any>((resolve, reject) => {
-    copy(patterns, dir, (res, err) => {
-      if(err) {
-        return reject(err);
-      }
-      return resolve(res)
-    })
-  });
-  return from(p);
-}

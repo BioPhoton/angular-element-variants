@@ -7,9 +7,6 @@ const schemesToMerge = []
 
 globCopy(
   [`${wd}/src/schematics/*/files/**/**.*`, `${wd}/src/schematics/**/index.md`],
-  `${wd}/dist/schematics`,
-  (err, file) => {
-    console.log('err, file', err, file.length);
-  },
+  `${wd}/dist/schematics`
 )
   .subscribe();

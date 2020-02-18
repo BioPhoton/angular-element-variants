@@ -1,22 +1,28 @@
 {
-  "name": "@angular-element-variants/schematics",
+  "name": "@angular-element-variants/integration-helper",
   "version": "0.0.0-beta.24",
   "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
-  "main": "collection.json",
+  "main": "dist/index.js",
   "directories": {
     "lib": "dist"
   },
   "files": [
-    "dist/**/*",
-    "collection.json"
+    "dist/**/*"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "schematics": "./collection.json",
+  "scripts": {
+    "prebuild": "yarn run clean",
+    "build": "yarn run compile",
+    "test": "jest --config ./jest.config.js",
+    "prepare": "ts-node tooling/update-peer-dependencies.ts",
+    "clean": "rimraf dist/**/*",
+    "link": "npm link",
+    "compile": "tsc -p tsconfig.build.json"
+  },
   "keywords": [
     "Angular",
-    "schematics",
     "WebComponents",
     "Bunlding",
     "AngularArchtitectAPI"
@@ -24,25 +30,17 @@
   "author": "Michael Hladky",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/builder-webpack"
+    "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/integration-helper"
   },
   "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=10.0.0"
   },
-  "scripts": {
-    "prebuild": "yarn run clean",
-    "build": "yarn run compile",
-    "postbuild": "yarn run prepare:dist",
-    "clean": "rimraf dist**/*",
-    "schematics": "schematics",
-    "link": "npm link",
-    "compile": "tsc -p tsconfig.build.json",
-    "prepare:dist": "ts-node tooling/prepare-dist.ts"
+  "peerDependencies": {
+    "@angular-element-variants/core": "^0.0.0-beta.23"
   },
   "devDependencies": {
-    "@angular-devkit/core": "^8.3.21",
-    "@angular-devkit/schematics": "^8.3.21"
+    "@angular-element-variants/core": "^0.0.0-beta.23"
   }
 }
