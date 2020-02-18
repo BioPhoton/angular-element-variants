@@ -13,12 +13,13 @@
     "access": "public"
   },
   "scripts": {
-    "prebuild": "yarn run clean",
-    "build": "yarn run compile",
+    "prebuild": "npm run clean",
+    "build": "npm run compile",
     "test": "jest --config ./jest.config.js",
     "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist/**/*",
     "link": "npm link",
+    "link-core": "npm link @angular-element-variants/core",
     "compile": "tsc -p tsconfig.build.json"
   },
   "keywords": [
@@ -41,6 +42,5 @@
     "@angular-element-variants/core": "^0.0.0-beta.23"
   },
   "devDependencies": {
-    "@angular-element-variants/core": "^0.0.0-beta.23"
   }
 }

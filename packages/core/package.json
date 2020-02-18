@@ -13,9 +13,9 @@
     "access": "public"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn compile",
-    "clean": "rimraf dist/**/*",
+    "prebuild": "npm run clean",
+    "build": "npm run compile",
+    "clean": "npx rimraf dist/**/*",
     "link": "npm link",
     "compile": "tsc -p tsconfig.build.json"
   },

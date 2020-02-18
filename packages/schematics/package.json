@@ -32,11 +32,12 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "prebuild": "yarn run clean",
-    "build": "yarn run compile",
+    "prebuild": "npm run clean",
+    "build": "npm run compile",
     "clean": "rimraf dist**/*",
     "schematics": "schematics",
     "link": "npm link",
+    "link-core": "npm link @angular-element-variants/core",
     "compile": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
