@@ -13,13 +13,14 @@
     "access": "public"
   },
   "scripts": {
-    "prebuild": "yarn run clean",
-    "build": "yarn run compile",
-    "postbuild": "yarn run prepare:dist",
+    "prebuild": "npm run clean",
+    "build": "npm run compile",
+    "postbuild": "npm run prepare:dist",
     "test": "jest --config ./jest.config.js",
     "prepare": "ts-node tooling/update-peer-dependencies.ts",
     "clean": "rimraf dist/**/*",
     "link": "npm link",
+    "link-core": "npm link @angular-element-variants/core",
     "compile": "tsc -p tsconfig.build.json",
     "prepare:dist": "ts-node tooling/prepare-dist.ts"
   },
@@ -43,6 +44,5 @@
     "@angular-element-variants/core": "^0.0.0-beta.23"
   },
   "devDependencies": {
-    "@angular-element-variants/core": "^0.0.0-beta.23"
   }
 }
