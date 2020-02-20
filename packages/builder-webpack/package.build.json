@@ -1,0 +1,62 @@
+{
+  "name": "@angular-element-variants/builder-webpack",
+  "version": "0.0.0-beta.24",
+  "description": "Custom webpack builders for WebComponents built with Angular elements. Allow to ship webComponents by configuration without any changes on the project structure.",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist/**/*",
+    "builders.json",
+    "collection.json"
+  ],
+  "builders": "builders.json",
+  "schematics": "./collection.json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "Angular",
+    "WebComponents",
+    "Bunlding",
+    "AngularArchtitectAPI"
+  ],
+  "author": "Michael Hladky",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BioPhoton/angular-element-variants/tree/master/packages/builder-webpack"
+  },
+  "homepage": "https://github.com/BioPhoton/angular-element-variants#readme",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "npm run compile",
+    "postbuild": "npm run prepare:builder && npm run prepare:schematics && npm run prepare:dist",
+    "test": "jest --config ./jest.config.js",
+    "clean": "rimraf dist**/*",
+    "compile": "tsc -p tsconfig.build.json",
+    "link": "npm link",
+    "link-core": "npm link @angular-element-variants/core",
+    "prepare:schematics": "ts-node tooling/prepare-schematics.ts",
+    "prepare:builder": "ts-node tooling/merge-builder-schemes.ts"
+  },
+  "peerDependencies": {
+    "@angular-devkit/build-angular": ">=0.801.0",
+    "@angular-element-variants/core": "^0.0.0-beta.19"
+  },
+  "dependencies": {
+    "@types/copyfiles": "^2.1.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": ">=0.801.0",
+    "@angular-devkit/core": "^8.3.21",
+    "@angular-devkit/schematics": "^8.3.21",
+    "@angular-devkit/schematics-cli": "^0.803.21",
+    "copyfiles": "^2.2.0",
+    "ts-node": "^8.5.4"
+  }
+}
