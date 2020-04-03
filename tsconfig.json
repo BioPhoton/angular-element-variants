@@ -15,7 +15,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-element-variants/builder-webpack": [
+        "libs/builder-webpack/src/index.ts"
+      ],
+      "@angular-element-variants/bundle-helpers": [
+        "libs/bundle-helpers/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

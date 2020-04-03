@@ -131,6 +131,86 @@
           }
         }
       }
+    },
+    "builder-webpack": {
+      "projectType": "library",
+      "root": "libs/builder-webpack",
+      "sourceRoot": "libs/builder-webpack/src",
+      "prefix": "angular-element-variants",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/builder-webpack/tsconfig.lib.json",
+            "project": "libs/builder-webpack/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/builder-webpack/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/builder-webpack/tsconfig.lib.json",
+              "libs/builder-webpack/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/builder-webpack/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder-webpack/jest.config.js",
+            "tsConfig": "libs/builder-webpack/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/builder-webpack/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "bundle-helpers": {
+      "root": "libs/bundle-helpers",
+      "sourceRoot": "libs/bundle-helpers/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/bundle-helpers/tsconfig.lib.json",
+              "libs/bundle-helpers/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/bundle-helpers/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/bundle-helpers/jest.config.js",
+            "tsConfig": "libs/bundle-helpers/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/bundle-helpers",
+            "tsConfig": "libs/bundle-helpers/tsconfig.lib.json",
+            "packageJson": "libs/bundle-helpers/package.json",
+            "main": "libs/bundle-helpers/src/index.ts",
+            "assets": ["libs/bundle-helpers/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

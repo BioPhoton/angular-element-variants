@@ -25,6 +25,12 @@
     "angular-element-variants-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["angular-element-variants-demo"]
+    },
+    "builder-webpack": {
+      "tags": []
+    },
+    "bundle-helpers": {
+      "tags": []
     }
   }
 }
