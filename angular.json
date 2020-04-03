@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "projects": {
+    "angular-element-variants-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/angular-element-variants-demo",
+      "sourceRoot": "apps/angular-element-variants-demo/src",
+      "prefix": "angular-element-variants",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-element-variants-demo",
+            "index": "apps/angular-element-variants-demo/src/index.html",
+            "main": "apps/angular-element-variants-demo/src/main.ts",
+            "polyfills": "apps/angular-element-variants-demo/src/polyfills.ts",
+            "tsConfig": "apps/angular-element-variants-demo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/angular-element-variants-demo/src/favicon.ico",
+              "apps/angular-element-variants-demo/src/assets"
+            ],
+            "styles": ["apps/angular-element-variants-demo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-element-variants-demo/src/environments/environment.ts",
+                  "with": "apps/angular-element-variants-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-element-variants-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-element-variants-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-element-variants-demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-element-variants-demo/tsconfig.app.json",
+              "apps/angular-element-variants-demo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/angular-element-variants-demo/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/angular-element-variants-demo/jest.config.js",
+            "tsConfig": "apps/angular-element-variants-demo/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/angular-element-variants-demo/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "angular-element-variants-demo-e2e": {
+      "root": "apps/angular-element-variants-demo-e2e",
+      "sourceRoot": "apps/angular-element-variants-demo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-element-variants-demo-e2e/cypress.json",
+            "tsConfig": "apps/angular-element-variants-demo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-element-variants-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-element-variants-demo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-element-variants-demo-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/angular-element-variants-demo-e2e/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "angular-element-variants-demo"
+}
