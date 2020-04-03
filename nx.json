@@ -29,7 +29,7 @@
     "builder-webpack": {
       "tags": []
     },
-    "bundle-helpers": {
+    "core": {
       "tags": []
     }
   }

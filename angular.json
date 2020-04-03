@@ -176,39 +176,47 @@
         }
       }
     },
-    "bundle-helpers": {
-      "root": "libs/bundle-helpers",
-      "sourceRoot": "libs/bundle-helpers/src",
+    "core": {
       "projectType": "library",
-      "schematics": {},
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "prefix": "angular-element-variants",
       "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/core/tsconfig.lib.json",
+            "project": "libs/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/core/tsconfig.lib.prod.json"
+            }
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/bundle-helpers/tsconfig.lib.json",
-              "libs/bundle-helpers/tsconfig.spec.json"
+              "libs/core/tsconfig.lib.json",
+              "libs/core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/bundle-helpers/**"]
+            "exclude": ["**/node_modules/**", "!libs/core/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/bundle-helpers/jest.config.js",
-            "tsConfig": "libs/bundle-helpers/tsconfig.spec.json",
-            "passWithNoTests": true
+            "jestConfig": "libs/core/jest.config.js",
+            "tsConfig": "libs/core/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/core/src/test-setup.ts"
           }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/libs/bundle-helpers",
-            "tsConfig": "libs/bundle-helpers/tsconfig.lib.json",
-            "packageJson": "libs/bundle-helpers/package.json",
-            "main": "libs/bundle-helpers/src/index.ts",
-            "assets": ["libs/bundle-helpers/*.md"]
-          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

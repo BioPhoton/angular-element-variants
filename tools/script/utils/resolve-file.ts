@@ -1,8 +1,4 @@
-import * as copy from 'copy';
-import { bindNodeCallback, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-function resolveFile(path: string): any {
+export function resolveFile(path: string): any {
   if (path.endsWith('.json')) {
     // Register TS compiler lazily
     require('ts-node').register({
@@ -31,15 +27,4 @@ function resolveFile(path: string): any {
   // `export default { ... }`. The ESM format is compiled into:
   // `{ default: { ... } }`
   return packageJson.default || packageJson;
-}
-
-export function globCopy(
-  patterns: string[],
-  dir: string
-): Observable<{ patterns: string[], num: number }> {
-  return bindNodeCallback(copy)(patterns, dir)
-    .pipe(
-      map((files) => ({ patterns, num: files.length })
-      )
-    );
 }
