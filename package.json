@@ -27,7 +27,7 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "REFACTORE": "AFTER_HERE",
-    "copy-schematics-assets": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\copy-schematics-assets.ts"
+    "builder-webpack:copy-schematics-assets": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\copy-schematics-assets.ts"
   },
   "private": true,
   "dependencies": {
