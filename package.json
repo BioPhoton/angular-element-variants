@@ -12,7 +12,7 @@
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
-    "affected:build": "nx affected:build",
+    "affected:build": "node ./node_modules/@nrwl/schematics/src/command-line/affected.js build",
     "affected:e2e": "nx affected:e2e",
     "affected:test": "nx affected:test",
     "affected:lint": "nx affected:lint",
@@ -26,7 +26,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "copy-schematics-assets": "ts-node -P ./tools/tsconfig.tools.json -r ./tools/bundle-helpers/tasks/copy-schematics-assets.ts"
+    "REFACTORE": "AFTER_HERE",
+    "copy-schematics-assets": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\copy-schematics-assets.ts"
   },
   "private": true,
   "dependencies": {
@@ -56,6 +57,7 @@
     "@nrwl/workspace": "9.2.1",
     "@types/jest": "25.1.4",
     "@types/node": "~8.9.4",
+    "@types/yargs": "^15.0.4",
     "codelyzer": "~5.0.1",
     "copy": "^0.3.2",
     "cypress": "^4.1.0",
@@ -68,6 +70,7 @@
     "ts-jest": "25.2.1",
     "ts-node": "^7.0.1",
     "tslint": "~6.0.0",
-    "typescript": "~3.8.3"
+    "typescript": "~3.8.3",
+    "yargs": "^15.3.1"
   }
 }

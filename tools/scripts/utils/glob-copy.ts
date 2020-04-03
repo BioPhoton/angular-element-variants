@@ -1,6 +1,6 @@
 import * as copy from 'copy';
 import { bindNodeCallback, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 export interface GlobCopyResult {
   patterns: string[],
@@ -13,7 +13,7 @@ export interface GlobCopyResult {
  *
  * @param {string[]} patterns - string array of glob pattern or file paths
  * @param {string} destination - the destination directory
- * @return {Observable<boolean>} -
+ * @return {Observable<GlobCopyResult>} -
  *
  * @example
  * ```ts
