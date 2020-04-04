@@ -1,7 +1,22 @@
-# builder-webpack
+# @angular-element-variants/builder-webpack
 
-This library was generated with [Nx](https://nx.dev).
+## Description
+An Angular bulider specialised for bundling Angular elements.
 
-## Running unit tests
+Following targets are supported:
+- build
+- server
+- dev-server
+- karma
 
-Run `nx test builder-webpack` to execute the unit tests.
+## Install
+
+`npm i -S @angular-element-variants/builder-webpack`  
+
+you may also install the peer-dependencies manually.
+
+
+### Related packages
+- [📦 core](https://www.npmjs.com/package/@angular-element-variants/core) - The core functionality
+- [📦 builder-webpack](https://www.npmjs.com/package/@angular-element-variants/builder-webpack) - A specialised builder to ship WebComponents in different versions
+- [📦 integration-helper](https://www.npmjs.com/package/@angular-element-variants/integration-helper) - A set of utils helping to setup angular-element-variants on the producer and consumer side

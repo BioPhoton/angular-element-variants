@@ -1,7 +1,15 @@
-# core
+# @angular-element-variants/core
 
-This library was generated with [Nx](https://nx.dev).
+## Description
+A core functionality of `@angular-element-variants`.
 
-## Running unit tests
+## Install
 
-Run `nx test core` to execute the unit tests.
+`npm i -S @angular-element-variants/core`  
+
+you may also install the peer-dependencies manually.
+
+
+### Related packages
+- [📦 builder-webpack](https://www.npmjs.com/package/@angular-element-variants/builder-webpack) - A specialised builder to ship WebComponents in different versions
+- [📦 integration-helper](https://www.npmjs.com/package/@angular-element-variants/integration-helper) - A set of utils helping to setup angular-element-variants on the producer and consumer side
