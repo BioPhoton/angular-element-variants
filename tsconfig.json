@@ -22,7 +22,10 @@
       "@angular-element-variants/bundle-helpers": [
         "libs/bundle-helpers/src/index.ts"
       ],
-      "@angular-element-variants/core": ["libs/core/src/index.ts"]
+      "@angular-element-variants/core": ["libs/core/src/index.ts"],
+      "@angular-element-variants/integration-helper": [
+        "libs/integration-helper/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

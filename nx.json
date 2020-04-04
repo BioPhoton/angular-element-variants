@@ -31,6 +31,9 @@
     },
     "core": {
       "tags": []
+    },
+    "integration-helper": {
+      "tags": []
     }
   }
 }

@@ -1,12 +1,12 @@
 import { SchematicsException, Tree } from '@angular-devkit/schematics';
-import { JsonParseMode, parseJson } from '@angular-devkit/core';
-import { ProjectType, WorkspaceProject, WorkspaceSchema } from 'schematics-utilities';
+import { JsonParseMode, parseJson, experimental } from '@angular-devkit/core';
+
 import { camelize } from 'tslint/lib/utils';
 
 export function getWorkspace(
   host: Tree,
   path = 'angular.json',
-): WorkspaceSchema {
+): experimental.workspace.WorkspaceSchema {
   if (!host.exists(path)) {
     throw new SchematicsException(`Could not find angular.json`);
   }
@@ -26,9 +26,8 @@ export function getWorkspace(
   return workspace;
 }
 
-export function getProject(workspace: WorkspaceSchema, options: { project: string }): WorkspaceProject<ProjectType> {
-  // Validating project name
-  const project: WorkspaceProject<ProjectType> = workspace.projects[getProjectName(workspace, options)];
+export function getProject(workspace: experimental.workspace.WorkspaceSchema, options: { project: string }): experimental.workspace.WorkspaceProject {
+  const project: experimental.workspace.WorkspaceProject = workspace.projects[getProjectName(workspace, options)];
 
   if (!project) {
     throw new SchematicsException(
@@ -39,8 +38,8 @@ export function getProject(workspace: WorkspaceSchema, options: { project: strin
   return project;
 }
 
-export function getProjectName(workspace: WorkspaceSchema, options: { project: string }): string {
-  let projectName = options.project || workspace.defaultProject;
+export function getProjectName(workspace: experimental.workspace.WorkspaceSchema, options: { project: string }): string {
+  const projectName: string = options.project || workspace.defaultProject;
 
   if (projectName === undefined) {
     throw new SchematicsException(
@@ -52,26 +51,24 @@ export function getProjectName(workspace: WorkspaceSchema, options: { project: s
 }
 
 
-export function parseApplicationProject(project: WorkspaceProject<ProjectType>): WorkspaceProject<ProjectType.Application> {
-  // Verifying project type application
+export function parseApplicationProject(project: experimental.workspace.WorkspaceProject): experimental.workspace.WorkspaceProject {
   if (project.projectType !== 'application') {
     throw new SchematicsException(
       `An Angular project type of "application" is required.`,
     );
   } else {
-    return project as WorkspaceProject<ProjectType.Application>;
+    return project;
   }
 }
 
 
-export function parseLibraryProject(project: WorkspaceProject<ProjectType>): WorkspaceProject<ProjectType.Library> {
-  // Verifying project type application
-  if (project.projectType !== 'application') {
+export function parseLibraryProject(project: experimental.workspace.WorkspaceProject): experimental.workspace.WorkspaceProject {
+  if (project.projectType !== 'library') {
     throw new SchematicsException(
-      `An Angular project type of "application" is required.`,
+      `An Angular project type of "library" is required.`,
     );
   } else {
-    return project as WorkspaceProject<ProjectType.Library>;
+    return project;
   }
 }
 

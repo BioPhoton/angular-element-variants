@@ -219,6 +219,50 @@
           "style": "scss"
         }
       }
+    },
+    "integration-helper": {
+      "projectType": "library",
+      "root": "libs/integration-helper",
+      "sourceRoot": "libs/integration-helper/src",
+      "prefix": "angular-element-variants",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/integration-helper/tsconfig.lib.json",
+            "project": "libs/integration-helper/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/integration-helper/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/integration-helper/tsconfig.lib.json",
+              "libs/integration-helper/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/integration-helper/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/integration-helper/jest.config.js",
+            "tsConfig": "libs/integration-helper/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/integration-helper/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
