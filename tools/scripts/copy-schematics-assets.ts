@@ -4,6 +4,7 @@ import * as path from 'path';
 import { getProject } from './utils/get-project';
 import { experimental } from '@angular-devkit/core';
 import { getOutPath } from './utils/get-out-path';
+import { copySchematicsAssets } from './tasks/copy-schematics-assets';
 
 interface Params {
   projectName: string
@@ -26,21 +27,3 @@ copySchematicsAssets(
     () => {
       console.log('COMPLETE generate');
     });
-
-
-// ===
-
-function copySchematicsAssets(source: string, destination: string): Observable<GlobCopyResult> {
-  if (!source || !destination) {
-    return throwError('Params source and destination required.');
-  }
-
-  const libsFolderStruct = '/src/schematics';
-  return globCopy(
-    [
-      path.join(source, libsFolderStruct, '*/files/**/**.*'),
-      path.join(source, libsFolderStruct, '**/index.md')
-    ],
-    path.join(destination, 'schematics')
-  );
-}
