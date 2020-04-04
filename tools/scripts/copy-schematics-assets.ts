@@ -1,5 +1,5 @@
 import { Observable, throwError } from 'rxjs';
-import { globCopy } from './utils/glob-copy';
+import { globCopy, GlobCopyResult } from './utils/glob-copy';
 import * as path from 'path';
 import { getProject } from './utils/get-project';
 import * as yargs from 'yargs';
@@ -21,26 +21,22 @@ if(!projectName) {
 
 
 const project: experimental.workspace.WorkspaceProject = getProject(projectName);
-
 const projectType = project.projectType === 'library' ? 'lib' : 'app';
 const outputPath = project.architect.build.options.outputPath;
-console.log('outputPath',outputPath);
 const destinationParam: string[] = outputPath ? [outputPath] : [projectType, projectName];
-console.log('destinationParam', destinationParam, project.root);
-console.log('dir', path.join(wd, project.root));
 
 copySchematicsAssets(
   path.join(wd, project.root),
-  path.join(wd, ...destinationParam)
+  path.join(wd, 'dist', ...destinationParam)
 )
   .subscribe(result => {
-    console.log(result);
+    console.log(`Copied ${result.numberOfFiles} to ${path.join(wd, 'dist',...destinationParam)}`);
     process.exit();
   });
 
 // ===
 
-function copySchematicsAssets(source: string, destination: string): Observable<any> {
+function copySchematicsAssets(source: string, destination: string): Observable<GlobCopyResult> {
   if (!source || !destination) {
     return throwError('Params source and destination required.');
   }
