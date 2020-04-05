@@ -16,7 +16,8 @@ export function generateSchemas(source: string, folder: string, destination: str
     return throwError('Params source and destination required.');
   }
 
-  const customSchemas: CustomSchema[] = require(path.join(source, 'src', folder, 'schemes.ts'));
+  const folderPath = path.join(source, 'src', folder, 'schemes.ext.ts');
+  const customSchemas: CustomSchema[] = require(folderPath);
   customSchemas.forEach(customSchema => {
     const originalSchema = require(path.join(customSchema.originalSchemaPath));
     const schemaExtensions = customSchema.schemaExtensionPaths
@@ -32,7 +33,7 @@ export function generateSchemas(source: string, folder: string, destination: str
 
   const res: GlobCopyResult = {
     source,
-    patterns: [path.join(source, 'src', folder, 'schemes.ext.ts')],
+    patterns: [folderPath],
     destination,
     numberOfFiles: customSchemas.length
   };

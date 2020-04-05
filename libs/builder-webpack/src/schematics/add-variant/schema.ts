@@ -1,5 +1,5 @@
 import {Schema as ParentSchema} from '../schema';
 
-export interface Schema extends  ParentSchema {
+export interface Schema extends ParentSchema {
 
 }
