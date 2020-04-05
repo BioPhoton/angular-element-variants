@@ -62,6 +62,8 @@ libs
 └───...
 ```
 
+
+
 **Build output in dist structure**
 
 ```
@@ -72,6 +74,7 @@ libs
 │   │   │   index.ts
 │   │   │   ...
 │   │   └───browser
+│   │   │   schema.json
 │   │   │   index.d.ts
 │   │   │   ...
 │   │   └───dev-server
@@ -79,10 +82,13 @@ libs
 │   │   └───...
 │   └───schematics
 │       │   index.d.ts
+│       │   schema.d.ts
 │       │   ...
 │       └───ng-add
 │       │   index.md
 │       │   index.d.ts
+│       │   schema.json
+│       │   schema.d.ts
 │       │   ...
 │       └───custom-generate
 │           └───files
