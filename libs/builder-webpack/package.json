@@ -4,6 +4,7 @@
   "main": "index.js",
   "files": [
     "lib/**/*",
+    "schematics/**/*",
     "builders.json",
     "collection.json"
   ],

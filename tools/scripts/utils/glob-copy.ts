@@ -1,9 +1,12 @@
 import * as copy from 'copy';
-import { bindNodeCallback, Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { bindNodeCallback, Observable, of } from 'rxjs';
+import { catchError, map, take } from 'rxjs/operators';
+import * as path from 'path';
 
 export interface GlobCopyResult {
+  source: string,
   patterns: string[],
+  destination: string,
   numberOfFiles: number
 }
 
@@ -24,12 +27,16 @@ export interface GlobCopyResult {
  * ```
  */
 export function globCopy(
+  source: string,
   patterns: string[],
   destination: string
 ): Observable<GlobCopyResult> {
-  return bindNodeCallback(copy)(patterns, destination).pipe(
+  const patternsWithSource = patterns.map(p => path.join(source, p));
+  return bindNodeCallback(copy)(patternsWithSource, destination).pipe(
     map(files => ({
+      source,
       patterns,
+      destination,
       numberOfFiles: files.length
     }))
   );

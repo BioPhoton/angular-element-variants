@@ -27,12 +27,11 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "REFACTORE": "AFTER_HERE",
-    "builder-webpack:copy-schematics-assets": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\copy-schematics-assets.ts",
-    "builder-webpack:generate-schemas": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\generate-schemas.ts"
+    "builder-webpack:post-build": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\post-build-schematics.ts",
+    "builder-webpack:publish": "ng test --project builder-webpack && ng build --project builder-webpack --prod && npm run builder-webpack:post-build"
   },
   "private": true,
   "dependencies": {
-    "@nrwl/angular": "9.2.1",
     "@angular/animations": "9.1.0",
     "@angular/common": "9.1.0",
     "@angular/compiler": "9.1.0",
@@ -41,8 +40,10 @@
     "@angular/platform-browser": "9.1.0",
     "@angular/platform-browser-dynamic": "9.1.0",
     "@angular/router": "9.1.0",
+    "@nrwl/angular": "9.2.1",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.4",
+    "schematics-utilities": "^2.0.1",
     "tslib": "^1.10.0",
     "zone.js": "^0.10.2"
   },

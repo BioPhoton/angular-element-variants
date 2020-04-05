@@ -1,4 +1,4 @@
-import { mergeTargetOptions } from './target-options-merger';
+import { mergeTargetOptions } from '../../src/lib/target-options-merger';
 
 describe('Target options merger override test', () => {
   it('Should replace all', () => {

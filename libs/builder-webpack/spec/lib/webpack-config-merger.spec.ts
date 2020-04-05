@@ -1,4 +1,4 @@
-import { mergeConfigs } from './webpack-config-merger';
+import { mergeConfigs } from '../../src/lib/webpack-config-merger';
 import * as webpack from 'webpack';
 
 describe('Webpack config merger test', () => {

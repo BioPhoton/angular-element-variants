@@ -1,6 +1,6 @@
 import { apply, mergeWith, move, Rule, SchematicContext, template, Tree, url } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
-import { buildDefaultPath, parseName } from 'schematics-utilities';
+import { buildDefaultPath, parseName, ProjectType, WorkspaceProject } from 'schematics-utilities';
 import { getProject, getProjectName, getWorkspace, parseApplicationProject } from '../utils';
 
 
@@ -10,7 +10,7 @@ export function addElementVariantFile(optionsSchema: { variant: string, project:
     const workspace = getWorkspace(tree, angularJsonPath);
     const projectName = getProjectName(workspace, optionsSchema);
     const unsafeProject = getProject(workspace, optionsSchema);
-    const project = parseApplicationProject(unsafeProject);
+    const project = parseApplicationProject(unsafeProject) as  WorkspaceProject<ProjectType.Application>;
     const projectPath = buildDefaultPath(project);
     const parsedName = parseName(projectPath, projectName);
 

@@ -1,1 +1,2 @@
-export * from './lib/builder-webpack.module';
+export * from './lib';
+export * from './schematics';

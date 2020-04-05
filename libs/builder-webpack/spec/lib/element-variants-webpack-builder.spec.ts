@@ -1,31 +1,25 @@
 import { Path } from '@angular-devkit/core';
 
-import { ElementVariantsWebpackBuilder } from './element-variants-webpack-builder';
-import {
-  ChangeDetection,
-  CompilationTypes,
-  EsVersions,
-  VariantConfig, ViewEncapsulation,
-  ZoneHandling,
-} from '@angular-element-variants/core';
+import { ElementVariantsWebpackBuilder } from '../../src/lib/element-variants-webpack-builder';
+import { VariantConfig } from '@angular-element-variants/core';
 
 const baseWebpackConfig = {
-  entry: './main.ts',
+  entry: './main.ts'
 };
 
 const buildOptions = {
-  env: 'prod',
+  env: 'prod'
 };
 
 const variant: VariantConfig = {
   // ViewEncapsulation: 0 = Emulated | 1 = Native | 2 = None | 3 = ShadowDom
-  encapsulation: ViewEncapsulation.ShadowDom,
+  encapsulation: 3,
   // ChangeDetection: 0 = OnPush | 1 = Default
-  changeDetection: ChangeDetection.OnPush,
+  changeDetection: 0,
   // ZoneHandling: 'None' | 'Injected' | 'Shipped' | 'Scoped'
-  zone: ZoneHandling.Shipped,
+  zone: 'Shipped',
   // CompilationTypes: 'preCompiled' | 'unCompiled'
-  compilation: CompilationTypes.preCompiled,
+  compilation: 'preCompiled',
   // runtimeShipped: true | false
   runtime: true,
   // polyfillsShipped: true | false
@@ -33,7 +27,7 @@ const variant: VariantConfig = {
   // scriptsShipped: true | false
   scripts: false,
   // EsVersions: 'es5' | 'es2015'
-  esVersion: EsVersions.es2015,
+  esVersion: 'es2015'
 };
 
 
@@ -47,7 +41,7 @@ describe('ElementVariantsWebpackBuilder', () => {
       __dirname as Path,
       null,
       baseWebpackConfig,
-      {},
+      {}
     );
 
     expect(mergedConfig).toEqual(baseWebpackConfig);
@@ -56,11 +50,11 @@ describe('ElementVariantsWebpackBuilder', () => {
   it('should return original config if no name is specified', async () => {
 
     const mergedConfig = ElementVariantsWebpackBuilder.buildWebpackConfig(
-        __dirname as Path,
-        variant,
-        baseWebpackConfig,
-        {},
-      );
+      __dirname as Path,
+      variant,
+      baseWebpackConfig,
+      {}
+    );
 
     expect(mergedConfig).toEqual(baseWebpackConfig);
 

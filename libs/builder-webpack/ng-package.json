@@ -1,6 +1,9 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/libs/builder-webpack",
+  "assets": [
+    "README.md"
+  ],
   "lib": {
     "entryFile": "src/index.ts"
   }

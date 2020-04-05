@@ -3,6 +3,7 @@ import * as path from 'path';
 import { merge } from 'lodash';
 import { writeFileSync } from 'fs';
 import { ensureDirectoryExists } from '../utils/ensure-directory-exists';
+import { GlobCopyResult } from '../utils/glob-copy';
 
 interface CustomSchema {
   originalSchemaPath: string;
@@ -10,7 +11,7 @@ interface CustomSchema {
   newSchemaPath: string;
 }
 
-export function generateSchemas(source: string, folder: string, destination: string): Observable<number> {
+export function generateSchemas(source: string, folder: string, destination: string): Observable<GlobCopyResult> {
   if (!source || !destination) {
     return throwError('Params source and destination required.');
   }
@@ -29,6 +30,10 @@ export function generateSchemas(source: string, folder: string, destination: str
     writeFileSync(path.join(destinationPath, customSchema.newSchemaPath), JSON.stringify(newSchema, null, 2), 'utf-8');
   });
 
-  return of(customSchemas.length);
+  const res: GlobCopyResult = {
+    patterns: [path.join(source, 'src', folder, 'schemes.ts')],
+    numberOfFiles: customSchemas.length
+  };
 
+  return of(res);
 }
