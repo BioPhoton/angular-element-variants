@@ -1,6 +1,5 @@
 import * as path from 'path';
-
-module.exports = [
+const schemes = [
   {
     originalSchemaPath: '@angular-devkit/build-angular/src/browser/schema.json',
     schemaExtensionPaths: [path.join('browser', 'schema.ext.json'), 'schema.ext.json'],
@@ -22,3 +21,5 @@ module.exports = [
     newSchemaPath: path.join('dev-server','schema.json')
   }
 ];
+
+module.exports = schemes;

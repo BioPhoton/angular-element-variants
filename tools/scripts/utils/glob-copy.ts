@@ -1,6 +1,6 @@
 import * as copy from 'copy';
-import { bindNodeCallback, Observable, of } from 'rxjs';
-import { catchError, map, take } from 'rxjs/operators';
+import { bindNodeCallback, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import * as path from 'path';
 
 export interface GlobCopyResult {

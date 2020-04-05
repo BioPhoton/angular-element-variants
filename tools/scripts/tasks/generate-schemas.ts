@@ -31,7 +31,9 @@ export function generateSchemas(source: string, folder: string, destination: str
   });
 
   const res: GlobCopyResult = {
-    patterns: [path.join(source, 'src', folder, 'schemes.ts')],
+    source,
+    patterns: [path.join(source, 'src', folder, 'schemes.ext.ts')],
+    destination,
     numberOfFiles: customSchemas.length
   };
 
