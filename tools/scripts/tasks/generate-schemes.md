@@ -1,10 +1,13 @@
 # generate-schemes
 
 ## Description
-This task helps to keep your schema description maintainable and up to date.
-I looks for a description file and extends the described schemas in the named order and exports them as one schema.json in the dist folder of the target project. 
 
-# Usage 
+This task helps to keep your schema description maintainable and up to date.
+I looks for a description file in your project,
+and extends the described schemas in the named order.
+After merging it exports them as one schema.json in the dist folder of the target project. 
+
+## Usage 
 
 `generateSchemas` takes 3 arguments:
 - source {string} - The source folder
@@ -17,7 +20,9 @@ With this information it loads all schema files, merges them together based on `
 writes them to the specified destination file in the dist folder.
 
 
-Example:
+### Example:
+
+Following workspace structure is assumed:
 
 **Root structure**
 ```
@@ -35,6 +40,8 @@ root
     └───lib-two
     └───lib-three
 ```
+
+Following project details are assumed:
 
 **lib-one structure**
 ```
@@ -81,10 +88,10 @@ libs
 └───...
 ```
 
-### Extending Existing Schemas
+#### Extending Existing Schemas
 
 ```typescript
-generateSchemas('libs/lib-one', 'lib', 'dist/lib/lib-one');
+generateSchemas('libs/lib-one', 'lib', 'dist/libs/lib-one');
 ```
 
 This command looks for `schemes.ext.ts` in `libs/lib-one/src/lib`:
@@ -124,7 +131,7 @@ libs
 └───...
 ```
 
-### Extending custom base schema
+#### Extending custom base schema
 
 Sometime we don't know have the base schema available in another lib. 
 In this case we have to create our own base schema.
