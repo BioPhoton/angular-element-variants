@@ -27,11 +27,12 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "REFACTORE": "AFTER_HERE",
+    "core:publish": "ng test --project core && nx run core:build:production --with-deps && npm publish --access public",
     "builder-webpack:post-build": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\post-build-schematics.ts",
-    "builder-webpack:publish": "ng test --project builder-webpack && nx run builder-webpack:build:production --with-deps && npm run builder-webpack:post-build"
+    "builder-webpack:publish": "ng test --project builder-webpack && nx run builder-webpack:build:production --with-deps && npm run builder-webpack:post-build && cd dist/libs/builder-webpack && npm publish --access public"
   },
-  "private": true,
   "dependencies": {
+    "@angular-element-variants/builder-webpack": "0.0.0-beta.23",
     "@angular/animations": "9.1.0",
     "@angular/common": "9.1.0",
     "@angular/compiler": "9.1.0",
@@ -48,7 +49,7 @@
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.901.0",
+    "@angular-devkit/build-angular": "^0.901.0",
     "@angular-devkit/build-ng-packagr": "~0.901.0",
     "@angular/cli": "9.1.0",
     "@angular/compiler-cli": "9.1.0",
