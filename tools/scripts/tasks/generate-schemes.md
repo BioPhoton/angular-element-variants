@@ -99,9 +99,12 @@ This command looks for `schemes.ext.ts` in `libs/lib-one/src/lib`:
 // libs/lib-one/src/lib/schemes.ext.ts
 module.exports = [
   {
-    originalSchemaPath: '@angular-devkit/build-angular/src/browser/schema.json',
-    schemaExtensionPaths: [path.join('browser', 'schema.ext.json'), 'schema.ext.json'],
-    newSchemaPath: path.join('browser','schema.json')
+    schemas: [
+      path.join('browser', 'schema.ext.json'), 
+      'schema.ext.json',
+      '@angular-devkit/build-angular/src/browser/schema.json'
+    ],
+    destination: path.join('browser','schema.json')
   },
   { ...  },
   ...
@@ -147,11 +150,14 @@ The `schemes.ext.ts` looks like that:
 // libs/lib-one/src/schematics/schemes.ext.ts
 module.exports = [
  {
-     originalSchemaPath: path.join(__dirname,'schema.base.json'),
-     schemaExtensionPaths: [path.join('ng-add', 'schema.ext.json'), `schema.ext.json`],
-     newSchemaPath: path.join('ng-add', 'schema.json')
+     schemas: [
+      path.join('ng-add', 'schema.ext.json'), 
+      `schema.ext.json`,
+      'schema.base.json'
+    ],
+     destination: path.join('ng-add', 'schema.json')
    },
- { ...  },
+   { ...  },
   ...
 ];
 ```

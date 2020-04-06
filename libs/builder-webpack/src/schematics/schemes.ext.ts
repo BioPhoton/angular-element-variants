@@ -2,14 +2,20 @@ import * as path from 'path';
 
 const schemas = [
   {
-    originalSchemaPath: path.join(__dirname,'schema.base.json'),
-    schemaExtensionPaths: [path.join('ng-add', 'schema.ext.json'), `schema.ext.json`],
-    newSchemaPath: path.join('ng-add', 'schema.json')
+    schemas: [
+      path.join('ng-add', 'schema.ext.json'),
+      'schema.ext.json',
+      'schema.base.json'
+    ],
+    destination: path.join('ng-add', 'schema.json')
   },
   {
-    originalSchemaPath: path.join(__dirname,'schema.base.json'),
-    schemaExtensionPaths: [path.join('add-variant', 'schema.ext.json'), `schema.ext.json`],
-    newSchemaPath: path.join('add-variant', 'schema.json')
+    schemas: [
+      path.join('add-variant', 'schema.ext.json'),
+      'schema.ext.json',
+      'schema.base.json'
+    ],
+    destination: path.join('add-variant', 'schema.json')
   }
 ];
 
