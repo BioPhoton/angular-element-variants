@@ -1,7 +1,7 @@
 import { json } from '@angular-devkit/core';
 
 type TargetOptionsMergeStrategy = 'replace';
-export type TargetOptionsMergeStrategies = { [field: string]: TargetOptionsMergeStrategy };
+export interface TargetOptionsMergeStrategies { [field: string]: TargetOptionsMergeStrategy }
 
 export function mergeTargetOptions(
   targetOptionsBase: json.JsonObject,

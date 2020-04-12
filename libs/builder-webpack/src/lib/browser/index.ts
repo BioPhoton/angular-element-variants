@@ -10,7 +10,7 @@ export type CustomWebpackBrowserSchema = BrowserBuilderOptions & ElementVariants
 
 export function buildCustomWebpackBrowser(
   options: CustomWebpackBrowserSchema,
-  context: BuilderContext
+  context: any
 ): Observable<BuilderOutputLike> {
   return mergeOptions(options, context).pipe(
     map(op => addFileReplacementsForVariant(op, context)),

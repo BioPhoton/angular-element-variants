@@ -3,7 +3,7 @@ import { Configuration } from 'webpack';
 import { differenceWith, keyBy, merge } from 'lodash';
 import { MergeStrategy } from 'webpack-merge';
 
-export type MergeStrategies = { [field: string]: MergeStrategy };
+export interface MergeStrategies { [field: string]: MergeStrategy }
 
 export function mergeConfigs(
   webpackConfig1: Configuration,

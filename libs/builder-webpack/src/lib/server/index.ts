@@ -18,11 +18,11 @@ export type CustomWebpackServerSchema = ServerBuilderOptions & ElementVariantsWe
 
 export function buildCustomWebpackServer(
   options: CustomWebpackServerSchema,
-  context: BuilderContext
+  context: any
 ): Observable<BuilderOutput> {
   return mergeOptions(options, context).pipe(
-    map(op => addFileReplacementsForVariant(op, context)),
-    switchMap(customWebpackOptions =>
+    map((op: CustomWebpackServerSchema) => addFileReplacementsForVariant(op, context)),
+    switchMap((customWebpackOptions: CustomWebpackServerSchema) =>
       executeServerBuilder(customWebpackOptions, context, {
         webpackConfiguration: customWebpackConfigTransformFactory(customWebpackOptions, context),
       })

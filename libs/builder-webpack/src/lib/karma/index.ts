@@ -18,10 +18,10 @@ export type CustomWebpackKarmaBuildSchema = KarmaBuilderOptions & ElementVariant
 
 export function buildCustomWebpackKarma(
   options: CustomWebpackKarmaBuildSchema,
-  context: BuilderContext
+  context: any
 ): Observable<BuilderOutput> {
   return mergeOptions(options, context).pipe(
-    map(options => addFileReplacementsForVariant(options, context)),
+    map((op: CustomWebpackKarmaBuildSchema) => addFileReplacementsForVariant(op, context)),
     switchMap(customWebpackOptions =>
       executeKarmaBuilder(customWebpackOptions, context, {
         webpackConfiguration: customWebpackConfigTransformFactory(customWebpackOptions, context),

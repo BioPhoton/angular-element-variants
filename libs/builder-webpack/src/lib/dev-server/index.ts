@@ -13,7 +13,7 @@ type ExtDevServerBuilderOptions = DevServerBuilderOptions & ElementVariantsWebpa
 
 export const serveCustomWebpackBrowser = (
   options: ExtDevServerBuilderOptions,
-  context: BuilderContext
+  context: any
 ): Observable<DevServerBuilderOutput> => {
   return mergeOptions(options, context).pipe(
     map(op => addFileReplacementsForVariant(op, context)),
