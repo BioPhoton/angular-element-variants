@@ -30,10 +30,12 @@
     "REFACTORE": "AFTER_HERE",
     "core:publish": "ng test --project core && nx run core:build:production --with-deps && npm publish --access public",
     "builder-webpack:post-build": "ts-node -P .\\tools\\tsconfig.tools.json -r .\\tools\\scripts\\post-build-schematics.ts",
-    "builder-webpack:publish": "ng test --project builder-webpack && nx run builder-webpack:build:production --with-deps && npm run builder-webpack:post-build && cd dist/libs/builder-webpack && npm publish --access public"
+    "builder-webpack:pack": "nx run builder-webpack:build:production --with-deps && nx run builder-webpack:build-schematics:production && npm run builder-webpack:post-build",
+    "builder-webpack:publish": "ng test --project builder-webpack && npm run builder-webpack:pack && cd dist/libs/builder-webpack && npm publish --access public"
   },
   "dependencies": {
     "@angular-element-variants/builder-webpack": "0.0.0-beta.23",
+    "@angular-element-variants/core": "~0.0.0",
     "@angular/animations": "9.1.1",
     "@angular/common": "9.1.1",
     "@angular/compiler": "9.1.1",

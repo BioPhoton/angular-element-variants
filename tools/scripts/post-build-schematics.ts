@@ -15,7 +15,7 @@ interface Params {
 }
 
 const wd = process.cwd();
-const params: Params = { projectName: 'builder-webpack', folders: ['lib', 'schematics'] };
+const params: Params = { projectName: 'builder-webpack', folders: ['builders', 'schematics'] };
 // in the cli: npm run post-build -- projectName=builder-webpack lib schematics
 // const params: Params = ensureCliParams<Params>(['projectName', 'folders']);
 

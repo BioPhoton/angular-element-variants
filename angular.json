@@ -13,7 +13,7 @@
       "prefix": "angular-element-variants",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-element-variants/builder-webpack:browser",
           "options": {
             "outputPath": "dist/apps/angular-element-variants-demo",
             "index": "apps/angular-element-variants-demo/src/index.html",
@@ -25,7 +25,9 @@
               "apps/angular-element-variants-demo/src/favicon.ico",
               "apps/angular-element-variants-demo/src/assets"
             ],
-            "styles": ["apps/angular-element-variants-demo/src/styles.scss"],
+            "styles": [
+              "apps/angular-element-variants-demo/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -60,7 +62,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-element-variants/builder-webpack:dev-server",
           "options": {
             "browserTarget": "angular-element-variants-demo:build"
           },
@@ -150,6 +152,32 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "deleteOutputPath": false,
+            "outputPath": "dist/libs/builder-webpack",
+            "tsConfig": "libs/builder-webpack/tsconfig.schematics.json",
+            "packageJson": "libs/builder-webpack/package.json",
+            "main": "libs/builder-webpack/src/index.ts",
+            "assets": [
+              "libs/builder-webpack/collection.json"
+            ]
+          }
+        },
+        "build-builders": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "deleteOutputPath": false,
+            "outputPath": "dist/libs/builder-webpack",
+            "tsConfig": "libs/builder-webpack/tsconfig.builders.json",
+            "packageJson": "libs/builder-webpack/package.json",
+            "main": "libs/builder-webpack/src/index.ts",
+            "assets": [
+              "libs/builder-webpack/builders.json"
+            ]
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -157,7 +185,10 @@
               "libs/builder-webpack/tsconfig.lib.json",
               "libs/builder-webpack/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/builder-webpack/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/builder-webpack/**"
+            ]
           }
         },
         "test": {
@@ -201,7 +232,10 @@
               "libs/core/tsconfig.lib.json",
               "libs/core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/core/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/core/**"
+            ]
           }
         },
         "test": {
@@ -245,7 +279,10 @@
               "libs/integration-helper/tsconfig.lib.json",
               "libs/integration-helper/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/integration-helper/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/integration-helper/**"
+            ]
           }
         },
         "test": {
