@@ -2,6 +2,7 @@
   "name": "angular-element-variants",
   "version": "0.0.0",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "nx": "nx",
